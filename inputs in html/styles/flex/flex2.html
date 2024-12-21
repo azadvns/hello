@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .container-row{
+            display:flex;
+            flex-direction: row;
+            /* border: 2px solid #333; */
+            justify-content: space-around;
+            align-items: center;
+            background-color: lightskyblue;
+        }
+        .item
+        {
+            margin: 10px;
+            border-style: none;
+            width: 200px;
+            border-width: 20px;
+            border-color: pink;
+            background-color: yellow;
+        }
+        .container-col{
+            display:flex;
+            flex-direction: column;
+            /* border: 2px solid #333; */
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        </style>
+</head>
+<body>
+    <!-- <div class="container-row">
+<div class="item">1</div>
+<div class="item">1</div>
+<div class="item">1</div>
+<div class="item">1</div>
+
+    </div> -->
+
+
+    <div class="container-col">
+        <div class="container-row">
+            <div class="item">1</div>
+            
+            
+                </div>
+            
+        
+
+
+                <div class="container-row">
+                    <div class="item">1</div>
+                    <div class="item">1</div>
+                    <div class="item">1</div>
+                    <div class="item">1</div>
+                    
+                        </div>
+            </div>
+</html>
+</body>

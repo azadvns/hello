@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        @keyframes rotate{
+            0%{left: 40px; top: 10%;}
+            25%{left: 40px; top: 90%;}
+            50%{left: 90%; top: 95%;}
+            75%{left: 90%; top: 10%;}
+            
+            100%{left: 40px; top: 10%;background-color: darkgreen;}
+        }
+        .spinner{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation-direction: normal;
+            animation-name: rotate;
+            animation-iteration-count: infinite;
+            animation-duration: 10s;
+            background-color: red;
+            border-radius: 50%;
+
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="spinner">
+        Bhai
+    </div> 
+    
+</body>
+</html>

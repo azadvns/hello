@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D2</title>
+    <style>
+        @keyframes spin{
+            0%{transform: rotatey(0);}
+            100%{transform: rotatey(360deg);}
+        }
+        .title{
+            perspective: 500px;
+            width: 300px;
+            font-size: 300px;
+            border-style: ridge;
+            /* animation:spin 2s linear 1; */
+            animation-fill-mode: forwards;
+            animation-name: spin;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <textarea readonly style="width: 50%; height: 300px;">
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>3D2</title>
+            <style>
+                @keyframes spin{
+                    0%{transform: rotatey(0);}
+                    100%{transform: rotatey(360deg);}
+                }
+                .title{
+                    perspective: 500px;
+                    width: 300px;
+                    font-size: 300px;
+                    border-style: ridge;
+                    /* animation:spin 2s linear 1; */
+                    animation-fill-mode: forwards;
+                    animation-name: spin;
+                    animation-duration: 3s;
+                    animation-iteration-count: infinite;
+                    animation-direction: alternate;
+                }
+            </style>
+        </head>
+        <body>
+            <img class="title" src="Varanasi Ganga Arti.webp">
+        </body>
+        </html>
+
+    </textarea>
+    <img class="title" src="Varanasi Ganga Arti.webp">
+</body>
+</html>

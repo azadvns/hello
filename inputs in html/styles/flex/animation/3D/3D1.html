@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D1</title>
+    <style>
+        @keyframes spin{
+        0% {transform:rotatex(0deg);}
+        100% {transform: rotatex(360deg);}
+    }
+    .spinner{
+        perspective: 1200px;
+        width: 500px;
+        /* height: 400px; */
+        font-size: 35px;
+        border-style: ridge;
+        animation: spin 3s linear infinite;
+        /* animation-duration: 4s; */
+        /* animation-iteration-count: 3; */
+
+    }
+    </style>
+</head>
+<body>
+    <input placeholder="name your please" type="text" class="spinner">
+    <img class="spinner" src="flag.jpg">
+</body>
+</html>
