@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modal</title>
+    <style>
+        .inactivemodal {
+            display: none;
+            background-color: black;
+            color: white;
+        }
+
+        .activemodal {
+            display: block;
+            background-color: black;
+            color: white;
+        }
+    </style>
+  
+</head>
+
+<body>
+    <div class="inactivemodal" id="divmodal">
+
+        Modal content
+    </div>
+    <input onclick="f()" id="showbutton" value="Show" type="button">
+
+
+    <script>
+        const bttn = document.getElementById("showbutton");
+        const modal = document.getElementById("divmodal");
+        function f() {
+            if (bttn.value == "Show") {
+                bttn.value = "Hide";
+                modal.classList.remove("inactivemodal");
+                modal.classList.add("activemodal");
+
+            }
+            else {
+                bttn.value = "Show";
+                modal.classList.remove("activemodal");
+                modal.classList.add("inactivemodal");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

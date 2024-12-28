@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>azad prajapati</title>
+</head>
+<body>
+    <%@ Page Title="Advocate Registration" Language="C#" MasterPageFile="~/MasterPage.master"  EnableEventValidation = "false" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="formpage" %>
+
+<asp:Content ID="content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="row">
+
+<!-- Form -->
+ 
+<div class="col-md-12" style="padding:30px 30px;">
+<div class="container w3-white" style="padding:10px;border:2px solid blue;">
+<span>
+<h3 class="title text-white w3-blue-grey">Advocate Registration</h3></span>
+
+<div class="row">
+<div class="col-md-12">
+<asp:Label ID="lblMessages" runat="server" CssClass="form-control" />
+</div>
+</div>
+<xform>
+<!-- Text Input -->
+
+
+<!---->
+<!--Row 1-->
+
+<div class="row">
+    <input required type="name">
+<div class="col-md-4">
+    
+<label for="username" >Name:</label>
+<asp:TextBox required pattern="[A-Za-z, ]+"  runat="server" cssClass="form-control" ID="txtAdvocateName" aria-describedby="Username" placeholder="Advocate Name"/>
+<div class="valid-feedback">Name filled</div>
+<div class="invalid-feedback">Please fill out your name.</div>
+</div>
+<input required type="email">
+<div class="col-md-4">
+    
+<label for="username" >EMail:</label>
+<asp:TextBox required type="email"  runat="server" cssClass="form-control" ID="txtEMail" aria-describedby="Username" placeholder="EMail"/>
+<div class="valid-feedback">EMail filled</div>
+<div class="invalid-feedback">Please fill out your EMail.</div>
+</div>
+<div class="col-md-4">
+<label for="username" >EMail:</label>
+<asp:TextBox required type="email"  runat="server" cssClass="form-control" ID="TextBox1" aria-describedby="Username" placeholder="EMail"/>
+<div class="valid-feedback">EMail filled</div>
+<div class="invalid-feedback">Please fill out your EMail.</div>
+</div>
+</div>
+<!--Row 1-->
+
+<!---->
+<div class="row">
+<div class="col-md-6">
+<label for="username" >Permanent Address:</label>
+<asp:TextBox required  TextMode="MultiLine"  runat="server" cssClass="form-control" ID="txtPermanentAddress" aria-describedby="Username" placeholder="Permanent Address"/>
+<div class="valid-feedback">Permanent Address filled</div>
+<div class="invalid-feedback">Please fill out your permanent address.</div>
+</div>
+<div class="col-md-6">
+<label for="username" >Correspondence Address:</label>
+<asp:TextBox required TextMode="MultiLine"  runat="server" cssClass="form-control" ID="txtCorrespondenceAddress" aria-describedby="Username" placeholder="Correpondence Address"/>
+<div class="valid-feedback">Correspondence address filled</div>
+<div class="invalid-feedback">Please fill out your Correspondence address.</div>
+</div>
+
+</div>
+<!---->
+<!---->
+<div class="row">
+<div class="col-md-6">
+<label for="username" >Mobile 1:</label>
+<asp:TextBox required  pattern="[1-9][0-9]{9}"  runat="server" cssClass="form-control" ID="txtMobileOne" aria-describedby="Username" placeholder="Mobile One"/>
+<div class="valid-feedback">Mobile1  filled</div>
+<div class="invalid-feedback">Please fill out your mobile no.</div>
+</div>
+<div class="col-md-6">
+<label for="username" >Mobile 2:</label>
+<asp:TextBox   runat="server"   pattern="[1-9][0-9]{9}"  cssClass="form-control" ID="txtMobileTwo" aria-describedby="Username" placeholder="Mobile Two"/>
+<div class="valid-feedback">Mobile2  filled</div>
+<div class="invalid-feedback">Please fill out your mobile no.</div>
+
+</div>
+
+</div>
+<!---->
+<!---->
+<div class="row">
+<div class="col-md-6">
+<label for="username" >Enrolment No:</label>
+<asp:TextBox required   runat="server" cssClass="form-control" ID="txtEnrolmentNo" aria-describedby="Username" placeholder="Enrolment No"/>
+<div class="valid-feedback">Enrolment No  filled</div>
+<div class="invalid-feedback">Please fill out your enrolment no.</div>
+
+</div>
+<div class="col-md-6">
+<label for="username" >COP No:</label>
+<asp:TextBox    runat="server" cssClass="form-control" ID="txtCopNo" aria-describedby="Username" placeholder="COP No"/>
+<div class="valid-feedback">COP No  filled</div>
+<div class="invalid-feedback">Please fill out your COP no.</div>
+
+</div>
+
+</div>
+<!---->
+<!---->
+<div class="row">
+<div class="col-md-6">
+<label for="username" >State:</label>
+<asp:DropDownList required   runat="server" cssClass="form-control" ID="ddStates" 
+        aria-describedby="Username" AutoPostBack="True" DataSourceID="StateDataSource" 
+        DataTextField="statename" DataValueField="stateno">
+</asp:DropDownList>
+
+
+    <asp:SqlDataSource ID="StateDataSource" runat="server" 
+        ConnectionString="%$ ConnectionStrings:ConnectionString %>" 
+        SelectCommand="SELECT * FROM [states] ORDER BY [statename]">
+    </asp:SqlDataSource>
+
+
+</div>
+<div class="col-md-6">
+<label for="username" >City:</label>
+<asp:DropDownList required   runat="server" cssClass="form-control" ID="ddCity" 
+        aria-describedby="Username" DataSourceID="CityDataSource" 
+        DataTextField="cityname" DataValueField="cityno">
+</asp:DropDownList>
+
+
+    <asp:SqlDataSource ID="CityDataSource" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+        SelectCommand="SELECT * FROM [cities] WHERE ([stateno] = @stateno) ORDER BY [cityname]">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddStates" Name="stateno" 
+                PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+
+</div>
+
+</div>
+<!---->
+
+
+
+<!---->
+<div class="row">
+<div class="col-md-6">
+<label for="username" >Date of Birth:</label>
+<asp:TextBox required  type="date"  runat="server" cssClass="form-control" ID="txtDateOfBirth" aria-describedby="Username" placeholder="Date of Birth"/>
+<div class="valid-feedback">Date of Birth  filled</div>
+<div class="invalid-feedback">Please fill out your Date of Birth.</div>
+
+</div>
+<div class="col-md-6">
+<label for="username" >Aadhar No:</label>
+<asp:TextBox required pattern="[0-9]{12}"  runat="server" cssClass="form-control" ID="txtAadharNo" aria-describedby="Username" placeholder="Aadhar No"/>
+<div class="valid-feedback">Aadhar No  filled</div>
+<div class="invalid-feedback">Please fill out your Aadhar no.</div>
+
+</div>
+
+</div>
+<!---->
+
+
+
+
+
+
+
+
+
+<!---->
+
+
+
+<!---->
+ <div class="row p w3-padding mt-2">
+ <div class="col-md-12">
+ <table class="table">
+    <tbody>
+ <tr>
+ <td></td>
+ <td>
+<asp:Button ID="Button2" runat="server" formnovalidate    cssClass="btn btn-success btn-spl btn-danger btn-md btn-block" Text="Clear" onclick="Button2_Click" />
+</td>
+        <td>
+         <asp:Button ID="Button3" runat="server" cssClass="btn  btn-primary btn-md d-none btn-block" Text="Verify"  />
+         </td>
+         <td>
+                 <asp:Button ID="bttnInsert" runat="server" cssClass="btn btn-success btn-spl btn-md btn-block" Text="Submit" onclick="bttnInsert_Click" />
+         </td>
+         <td></td>
+         </tr>
+         </tbody>
+         </table>
+        </div>
+
+        </div>
+</xform>   
+</div>
+</div>
+</div>
+
+
+</asp:Content>
+
+</body>
+</html>

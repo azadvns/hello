@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <style>
+.inpay{
+    display: flex;
+    background-color: aqua;
+    color: azure;
+}
+.pay{
+    display: flex;
+    background-color: bisque;
+    color: blueviolet;
+}
+
+    </style>
+</head>
+<body>
+    <div class="inpay" id="divmodal">input value</div>
+    <input onclick="f()" id="menubar"  value="value" type="value">
+
+    
+    <script>
+        const bttn = document.getElementById("menubar");
+        const modal = document.getElementById("divmodal");
+        function f() {
+            if (bttn.value == "Show") {
+                bttn.value = "Hide";
+                modal.classList.remove("inpay");
+                modal.classList.add("pay");
+
+            }
+            else {
+                bttn.value = "Show";
+                modal.classList.remove("pay");
+                modal.classList.add("inpay");
+            }
+        }
+
+    </script>
+
+
+    
+</body>
+</html>
