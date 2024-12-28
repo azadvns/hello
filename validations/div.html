@@ -37,6 +37,7 @@
 </head>
 
 <body>
+    <h1>Winner</h1>
 
     <div class="row">
         <div class="col-md-3">
@@ -118,13 +119,44 @@
 
 
     <script>
+        let gamesituation=0;
         let currentplayer = 1;
         const player1 = "Azad";
         const player2 = "Nitin";
         const p1 = document.getElementById("hplayer1");
         const p2 = document.getElementById("hplayer2");
         let board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const win1 = [1, 2, 3];
+        const win2 = [4, 5, 6];
+        const win3 = [7, 8, 9];
+        const win4 = [1, 4, 7];
+        const win5 = [2, 5, 8];
+        const win6 = [3, 6, 9];
+        const win7 = [3, 5, 7];
+        const win8 = [1, 5, 9];
 
+        function getRowStatus(winn) {
+            let n1 = 0;
+            let n2 = 0;
+            for (let i = 0; i <= 2; i++) {
+                let coin = winn[i];
+                coin = board[coin];
+                if (coin == 1)
+                    n1++;
+                if (coin == 2)
+                    n2++;
+
+            }
+            console.log(n1, n2);
+            if (n1 == 3)
+                return 1;
+            if (n2 == 3)
+                return 2;
+            if (n1 > 0 && n2 > 0)
+                return 3;
+            return 0;
+
+        }
         function showGamePosition() {
             let i = 1;
             for (i = 1; i <= 9; i++) {
@@ -141,9 +173,24 @@
                     document.getElementById("t" + i).innerHTML = "X";
                 }
             }
+            let result = getGameStatus();
+            if (result == 1)
+                result = "Player 1 wins";
+            if (result == 2)
+                result = "Player 2 wins";
+            if (result == 3)
+                result = "Draw";
+            if (result == 0)
+                result = "play";
+            return result;
         }
         function play(id) {
+if(gamesituation!=0)
+{
+    alert("Game over  " + gamesituation);
+    return;
 
+}
             let x = document.getElementById(id);
             let position = Number(id.replace("t", ""));
             let n = board[position];
@@ -159,8 +206,11 @@
             // alert(id);
             // x.innerHTML = currentplayer;
             board[position] = currentplayer;
-            showGamePosition();
+            let result = showGamePosition();
+
             console.table(board);
+            alert(result);
+            console.log(result);
             p1.classList.remove("active");
             p1.classList.remove("inactive");
             p2.classList.remove("active");
@@ -182,6 +232,136 @@
             p1.innerHTML = player1;
             p2.innerHTML = player2;
             showGamePosition();
+        }
+        function getGameStatus() {
+            let blocks = 0;
+            //********************************Win1 start***************
+            let currentrow = getRowStatus(win1);
+            console.log("GGS");
+            console.log("win1", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //********************************Win1 end***************
+
+            //********************************Win2 start***************
+
+            currentrow = getRowStatus(win2);
+            console.log("GGS");
+            console.log("win2", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+            //***********************************win2 end***********************
+
+
+            //***********************************win3 start***********************
+
+            currentrow = getRowStatus(win3);
+            console.log("GGS");
+            console.log("win3", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win3 end***********************
+
+
+            //***********************************win4 start***********************
+
+
+            currentrow = getRowStatus(win4);
+            console.log("GGS");
+            console.log("win4", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win4 end***********************
+
+
+
+
+            //***********************************win5 start***********************
+
+            currentrow = getRowStatus(win5);
+            console.log("GGS");
+            console.log("win5", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+
+            //***********************************win5 end***********************
+
+
+
+            //***********************************win6 start***********************
+
+            currentrow = getRowStatus(win6);
+            console.log("GGS");
+            console.log("win6", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win6 end***********************
+
+            //***********************************win7 start***********************
+
+            currentrow = getRowStatus(win7);
+            console.log("GGS");
+            console.log("win7", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+            //***********************************win7 end***********************
+
+
+            //***********************************win8 start***********************
+
+
+            currentrow = getRowStatus(win8);
+            console.log("GGS");
+            console.log("win8", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+            //***********************************win8 end***********************
+            if (blocks == 8)
+                return 3;
+            return 0;
+
         }
         init();
 
