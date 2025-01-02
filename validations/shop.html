@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cloth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+  div{
+    /* border-style: ridge; */
+  }
+  .centerboard{
+    display: flex;
+    justify-content: center;
+  }
+  img{
+    height: 400px;
+    width: 200px;
+  }
+  
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color:lightsalmon;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+}
+
+.color{
+  background-color: lightgreen;
+}
+
+</style>
+    
+  </head>
+  <body>
+<div class="row">
+  <h1 style="background-color: aqua;"  class="centerboard">New Kashi Vastralay</h1>
+</div>
+
+    <div class="container-fluid">
+      <div class="color">
+      <div class="row">
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+
+     
+        <div   id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="centerboard">Cloth the best quality</div>
+              <h1 class="centerboard">Up to 25% off</h1>
+              <img  src="cloth1.jpeg" class="d-block w-100" alt="...">
+            
+            </div>
+            <div class="carousel-item">
+              <div class="centerboard">Cloth the best quality</div>
+              <h1 class="centerboard">Up to 25% off</h1>
+              <img src="cloth2.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <div class="centerboard">Cloth the best quality</div>
+              <h1 class="centerboard">Up to 25% off</h1>
+              
+              <img src="cloth9.jpeg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button  class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span   class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img src="cloth4.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">image 1</h5>
+            <p class="card-text">Cloth of price 25% discount</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+           
+          </div>
+        </div>
+      
+
+
+      </div>
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img src="cloth8.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">image 2</h5>
+            <p class="card-text">Cloth of price 25% discount</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img src="cloth7.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">image 3</h5>
+            <p class="card-text">Cloth of price 25% discount</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img src="cloth2.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">image 4</h5>
+            <p class="card-text">Cloth of price 25% discount</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+</div>
+</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
