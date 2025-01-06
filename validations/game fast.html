@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game fast</title>
+    <style>
+.col{
+    height: 100px;
+    width: 100px;
+}
+@keyframes game{
+    0%{width: 10%;}
+    40%{width: 40%;}
+    100%{width: 100%; box-shadow: 5px 5px 10px #888888; opacity: 0;border-radius:50%; background-color: green;}
+}
+.aap{
+    animation-name: match;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+    </style>
+</head>
+<body>
+    <button id="t" onclick="ani()">hellow</button>
+    <center>
+    <table id="board"  border="1">
+    <tr><td><div class="col"></div></td> <td><div class="col"></div></td> <td><div class="col"></div></td></tr>
+    <tr><td><div class="col"></div></td> <td><div class="col"></div></td> <td><div class="col"></div></td></tr>
+    <tr><td><div class="col"></div></td> <td><div class="col"></div></td> <td><div class="col"></div></td></tr>
+
+
+</table>
+</center>
+<script>
+    function ani(){
+        alert();
+        document.getElementById("board").classList.add("aap");
+    }
+</script>
+</body>
+</html>

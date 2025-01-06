@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bootstrap Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <style>
+        .col-md-4 {
+            border-style: ridge;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            font-size: 50px;
+            padding: 20px;
+            background-color: lightslategray;
+            color: lightskyblue;
+        }
+
+        div {
+            border-style: ridge;
+        }
+
+        .active {
+            background-color: aquamarine;
+        }
+
+        .inactive {
+            background-color: brown;
+        }
+
+        .winner {
+            display: block;
+        }
+
+        .loser {
+            display: none;
+        }
+
+
+
+        @keyframes rotate {
+            0% {
+                transform: rotatey(0);
+            }
+
+            100% {
+                transform: rotatey(360deg);
+            }
+
+            /* 10%{width: 10%;}
+            50%{width: 50%;}
+            90%{width: 90%;} */
+        }
+
+        .spinner {
+            perspective: 50px;
+            font-size: 50px;
+            /* width: 50px; */
+            /* height: 50px; */
+            border-style: ridge;
+            /* animation-name: rotate; */
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .box {
+            box-shadow: 5px 5px 10px #888888;
+        }
+
+        .centerboard {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .winn {
+            animation-name: jeetanekebad;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            
+        }
+
+        @keyframes jeetanekebad {
+            0% {
+                width: 10%;
+            }
+
+            50% {
+                width: 50%;
+            }
+
+            100% {
+                box-shadow: 5px 5px 10px #888888;
+                opacity: 0;
+                width: 100%;
+                border-radius: 50%;
+                background-color: hsl(257, 70%, 62%);
+                background-color: yellow;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <h1 id="hplayer1" class="active">Azad</h1>
+            <div class="box">
+                <img id="image1" class="winner loser" src="../assets/brand/word.jpeg">
+                <!-- <div id="image">image 1</div> -->
+            </div>
+        </div>
+        <div class="col-md-6 centerboard spinner box" >
+
+            <table  id="board" border="1">
+
+
+
+
+                <tr>
+                    <td>
+                        <div id="t1" onclick="play('t1')" class="col-md-4"></div>
+                    </td>
+                    <td>
+                        <div id="t2" onclick="play('t2')" class="col-md-4"></div>
+                    </td>
+                    <td>
+                        <div id="t3" onclick="play('t3')" class="col-md-4"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="t4" onclick="play('t4')" class="col-md-4"></div>
+                    </td>
+
+
+
+                    <td>
+                        <div id="t5" onclick="play('t5')" class="col-md-4"></div>
+                    </td>
+
+        </div>
+
+        <td>
+            <div id="t6" onclick="play('t6')" class="col-md-4"></div>
+        </td>
+        </tr>
+
+
+
+
+
+
+        <tr>
+            <td>
+                <div id="t7" onclick="play('t7')" class="col-md-4"></div>
+            </td>
+
+    </div>
+
+    <td>
+        <div id="t8" onclick="play('t8')" class="col-md-4"></div>
+    </td>
+
+
+
+    <td>
+        <div id="t9" onclick="play('t9')" class="col-md-4"></div>
+    </td>
+    </tr>
+
+
+
+    </div>
+    </div>
+    </table>
+
+    </div>
+    <div class="col-md-3">
+        <h1 id="hplayer2" class="inactive">Nitin</h1>
+        <div class="box">
+            <img id="image2" class="loser" src="../assets/brand/word.jpeg">
+            <!-- <div id="image ">image 2</div> -->
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script>
+        let gamesituation = 0;
+        let currentplayer = 1;
+        const player1 = localStorage.getItem("p1");
+        const player2 = localStorage.getItem("p2");
+        const p1 = document.getElementById("hplayer1");
+        const p2 = document.getElementById("hplayer2");
+        let board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const win1 = [1, 2, 3];
+        const win2 = [4, 5, 6];
+        const win3 = [7, 8, 9];
+        const win4 = [1, 4, 7];
+        const win5 = [2, 5, 8];
+        const win6 = [3, 6, 9];
+        const win7 = [3, 5, 7];
+        const win8 = [1, 5, 9];
+        function onpagestart() {
+
+        }
+
+        function showResult(result) {
+
+            const image1 = document.getElementById("image1");
+            const image2 = document.getElementById("image2");
+            if (result == 1) {
+                image1.style.display = "block";
+            }
+            if (result == 2) {
+                image2.style.display = "block";
+            }
+        }
+
+        function getRowStatus(winn) {
+            let n1 = 0;
+            let n2 = 0;
+            for (let i = 0; i <= 2; i++) {
+                let coin = winn[i];
+                coin = board[coin];
+                if (coin == 1)
+                    n1++;
+                if (coin == 2)
+                    n2++;
+
+            }
+            console.log(n1, n2);
+            if (n1 == 3)
+                return 1;
+            if (n2 == 3)
+                return 2;
+            if (n1 > 0 && n2 > 0)
+                return 3;
+            return 0;
+
+        }
+        function showGamePosition() {
+            let i = 1;
+            for (i = 1; i <= 9; i++) {
+                let positionvalue = board[i];
+                if (positionvalue == 0)
+
+                    document.getElementById("t" + i).innerHTML = "";
+
+                else if (positionvalue == 1) {
+                    document.getElementById("t" + i).innerHTML = "O";
+                }
+                else {
+
+                    document.getElementById("t" + i).innerHTML = "X";
+                }
+            }
+            let result = getGameStatus();
+            if (result == 1) {
+                result = "Player 1 wins";
+
+                document.getElementById("board").classList.add("winn");
+                
+
+                //Show player1 victory
+                showResult(1);
+                gamesituation = 1;
+
+
+            }
+            if (result == 2) {
+                result = "Player 2 wins";
+                document.getElementById("board").classList.add("winn");
+                
+
+                //Show player victory
+                showResult(2);
+                gamesituation = 2;
+            }
+            if (result == 3) {
+                result = "Draw";
+                gamesituation = 3;
+                //Show  Draw
+            }
+            if (result == 0) {
+                result = "play";
+                // gamesituation=4;
+            }
+            return result;
+        }
+        function play(id) {
+            if (gamesituation != 0) {
+                alert("Game over  " + gamesituation);
+                return;
+
+            }
+            let x = document.getElementById(id);
+            let position = Number(id.replace("t", ""));
+            let n = board[position];
+            // alert(position);
+
+
+            if (n != 0) {
+                alert("Already filled");
+                return;
+            }
+
+            // alert(currentplayer);
+            // alert(`position =${position}`);
+
+            // alert(id);
+            // x.innerHTML = currentplayer;
+            board[position] = currentplayer;
+            let result = showGamePosition();
+            // currentplayer = 2;
+            console.table(board);
+            // alert(result);
+            console.log(result);
+            p1.classList.remove("active");
+            p1.classList.remove("inactive");
+            p2.classList.remove("active");
+            p2.classList.remove("inactive");
+            if (currentplayer == 2 ){
+                p1.classList.add("active");
+                p2.classList.add("inactive");
+                currentplayer = 1;
+                // alert(1);
+
+            }
+            else {
+                p2.classList.add("active");
+                p1.classList.add("inactive");
+                currentplayer = 2;
+                // alert(2);
+            }
+        }
+
+        function init() {
+            p1.innerHTML = player1;
+            p2.innerHTML = player2;
+            showGamePosition();
+        }
+        function getGameStatus() {
+            let blocks = 0;
+            //********************************Win1 start***************
+            let currentrow = getRowStatus(win1);
+            console.log("GGS");
+            console.log("win1", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //********************************Win1 end***************
+
+            //********************************Win2 start***************
+
+            currentrow = getRowStatus(win2);
+            console.log("GGS");
+            console.log("win2", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+            //***********************************win2 end***********************
+
+
+            //***********************************win3 start***********************
+
+            currentrow = getRowStatus(win3);
+            console.log("GGS");
+            console.log("win3", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win3 end***********************
+
+
+            //***********************************win4 start***********************
+
+
+            currentrow = getRowStatus(win4);
+            console.log("GGS");
+            console.log("win4", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win4 end***********************
+
+
+
+
+            //***********************************win5 start***********************
+
+            currentrow = getRowStatus(win5);
+            console.log("GGS");
+            console.log("win5", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+
+            //***********************************win5 end***********************
+            //***********************************win6 start***********************
+
+            currentrow = getRowStatus(win6);
+            console.log("GGS");
+            console.log("win6", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+            //***********************************win6 end***********************
+
+            //***********************************win7 start***********************
+
+            currentrow = getRowStatus(win7);
+            console.log("GGS");
+            console.log("win7", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+            //***********************************win7 end***********************
+
+            //***********************************win8 start***********************
+
+            currentrow = getRowStatus(win8);
+            console.log("GGS");
+            console.log("win8", currentrow);
+            if (currentrow == 1)
+                return 1;
+            if (currentrow == 2)
+                return 2;
+            if (currentrow == 3)
+                blocks++;
+
+
+            //***********************************win8 end***********************
+            if (blocks == 8)
+                return 3;
+            return 0;
+
+        }
+        init();
+
+
+        function jeet() {
+            alert();
+            document.getElementById("board").classList.add("winn");
+            
+            
+        }
+
+
+    </script>
+    <!-- <div class="spinner" src="../assets/brand/word.jpeg"></div> -->
+    </div>
+    <div>Azad Prajapati</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
