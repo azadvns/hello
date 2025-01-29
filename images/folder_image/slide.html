@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <style>
+        @keyframes rotate{
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+            10%{transform: rotateY(10deg);}
+            80%{transform: rotatey(180deg);}
+        }
+        .spin{
+            animation-name: rotate;
+            position: absolute;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <img class="spin" id="img" src="../folder_image/0.jpg">
+    <script>
+        const spin=document.getElementById("img");
+        let n=0;
+        const total=6;
+
+
+        spin.addEventListener(`animationiteration`,()=>{
+            console.log(`animationiteration`);
+            n=(n+1)% total;
+            spin.src=`../folder_image/${n}.jpg`;
+        }
+
+        );
+    </script>
+</body>
+</html>

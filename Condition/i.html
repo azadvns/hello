@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes spin{
+            0%{transform: rotateZ(0deg);}
+            100%{transform: rotatez(360deg);}
+        }
+        div {
+  width: 90%;
+  height: 500px;
+  /* background-color: skyblue; */
+}
+
+.rotated {
+  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
+  background-color: pink;
+  animation: spin 4s linear 1;
+}
+    </style>
+</head>
+<body>
+    <div class="rotated">
+        <img src="../images/1.jpg">
+    </div>
+</body>
+</html>

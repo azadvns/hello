@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conditon script</title>
+    <script>
+        function fcondition() {
+            let monthno = Number(document.getElementById("t1").value);
+            let output = document.getElementById("output");
+            console.log(monthno);
+
+            let result = "not given";
+            // alert(monthno);
+
+
+            switch (monthno) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+
+                    result = "31";
+                    break
+                case 2:
+
+                    result = "28 or 29";
+                    break
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    result = "30";
+                    break
+
+                default:
+                    // t2.value = monthno;
+                    console.log("Invalid");
+                    result = "Invalid";
+                    break;
+            }
+
+            output.value = result;
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="text" id="t1"><br>
+    <input type="text" id="output"><br>
+
+
+    <button onclick="fcondition()">condition</button>
+
+</body>
+
+</html>

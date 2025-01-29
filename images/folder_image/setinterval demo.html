@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+</head>
+<body>
+    <label id="timer"></label>
+    <script>
+        let loop=null;
+        let timeinterval=0;
+        let allowedtime=10;
+        const txtimer=document.getElementById("timer");
+function runTimer()
+{
+    console.log("Inside run timer");
+    if(timeinterval<allowedtime)
+    timeinterval=timeinterval+1;
+    console.log(`Time = ${timeinterval}`);
+    txtimer.innerHTML=`Time = ${timeinterval}`;
+    if(timeinterval>=allowedtime)
+{
+    txtimer.innerHTML=`Time over ${timeinterval}`;  
+    clearInterval(loop); 
+}
+}
+function startTimer()
+{
+    loop=setInterval(runTimer,1000);
+    
+}
+setTimeout(startTimer,5000);
+
+    </script>
+</body>
+</html>

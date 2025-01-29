@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rotate</title>
+    <style>
+@keyframes spinner{
+    0%{transform: rotatey(0deg);}
+    100%{transform: rotatey(360deg);}
+}
+.box{
+    animation-name: spinner;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+}
+
+    </style>
+</head>
+<body>
+    <img class="box" id="image" src="../folder_image/0.jpg">
+
+   <script>
+   const box = document.getElementById("image");
+let n =0;
+const total=6;
+
+
+// Handle animationstart
+box.addEventListener('animationiteration', () => {
+  console.log('Animation Iteration');
+n=(n+1)% total;
+box.src=`../folder_image/${n}.jpg`;
+});
+
+   </script>
+
+   
+</body>
+</html>

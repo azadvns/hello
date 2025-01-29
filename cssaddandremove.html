@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS add and Remove</title>
+    <style>
+.coloryellow{
+    color: yellow;
+
+}
+.colorpink{
+    color: pink;
+
+}
+.app{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    animation: alternate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: rotate;
+    
+}
+@keyframes jeetanekebad{
+           0%{width: 10%;}
+       50%{width: 50%;}
+    
+        }
+
+
+    </style>
+    <script>
+function addClass()
+{
+    const classname=document.getElementById("txt").value ;
+    const widget=document.getElementById("d");
+    widget.classList.add(classname);
+    
+}
+function removeClass()
+{
+    const classname=document.getElementById("txt").value ;
+    const widget=document.getElementById("d");
+    widget.classList.remove(classname);
+    
+}
+
+    </script>
+</head>
+<body>
+   
+    <center>
+    
+    <a href="#">click</a>
+    <input type="text" id="txt"><br>
+    <input type="button" value="Add Class" onclick="addClass()"><input type="button" value="Remove Class" onclick="removeClass()">
+    <div id="d">See the effects here</div>
+</center>
+    <img class="app" src="celebration1.jpeg">
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script3</title>
+    <script>
+        function famount() {
+
+            let h1 = Number(document.getElementById("h1").value);
+            let h2 = Number(document.getElementById("h2").value);
+            let h3 = document.getElementById("amount");
+            console.log(h1 + h2);
+            // console.log(k1,k2,k3,k4);
+            // let result =" notgiven";
+            // if(+)
+            // result = h1+h2;
+            // if(-)
+            // result = h1-h2;
+            // if(*)
+            // result =h1*h2;
+            // if(/)
+            // result =h1/h2;
+            // h3.value=result;
+            let operator = document.getElementById("operator").value;
+            console.log(operator);
+        let result="notgiven" ; 
+        
+            if (operator=="+")
+                result = h1 + h2;
+            if (operator=="-")
+                result = h1 - h2;
+            if (operator=="*")
+                result = h1 * h2;
+            if (operator=="/")
+                result = h1 / h2;
+            h3.value = result;
+            // console.log(result);
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" placeholder="your enter" id="h1">
+    <br>
+    <input type="text" placeholder="your enter" id="h2">
+    <br>
+    <input type="text" placeholder="Total enter" id="amount">
+    <br>
+    <select id="operator">
+        <option value="0">---</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <button onclick="famount()">Amount</button>
+</body>
+
+</html>

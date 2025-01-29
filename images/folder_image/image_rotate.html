@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image rotate</title>
+    <style>
+        @keyframes spin{
+            0%{transform: rotatez(0deg);}
+            100%{transform: rotatez(360deg);}
+        }
+        .one{
+            animation: spin 5s linear infinite;
+            height: 500px;
+            width: 500px;
+            border-radius: 50px;
+        }
+
+        @keyframes rotate{
+            0%{transform: rotatez(360deg);}
+            100%{transform: rotatez(0deg);}
+        }
+        .two{
+            animation: rotate 5s linear infinite;
+            height: 500px;
+            width: 500px;
+            border-radius: 50px;
+        }
+
+@keyframes space{
+    0%{right: 0%;}
+    100%{ right: 100%;}
+}
+.text{
+    animation: space 5s linear infinite;
+    position: absolute;
+    height: 5%;
+    z-index: 10;
+    overflow: hidden;
+    background-color: aqua;
+    margin-top: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="text" id="t1">Happy Journey</div>
+    
+    <img class="one" id="image" src="../folder_image/0.jpg">
+
+    <script>
+         const messages = [  "Duck" , "Sea of duck", "Lucknow", "Mahadev", "Banaras Ghat", ];
+         let t1 = document.getElementById("t1");
+
+
+         
+        const one=document.getElementById("image");
+        let n=0;
+        const total=6;
+        console.log(n);
+
+        t1.addEventListener(`animationiteration`,()=>{
+            console.log(`animation iteration`);
+
+            t1.innerHTML = ` ${messages[n]}`;
+            console.log(t1.innerHTML);
+
+
+
+            let rnd=Math.floor(Math.random()*2);
+            console.log(rnd);
+            n=(n+1)% total;
+            console.log(n,total);
+one.classList.remove("one");
+one.classList.remove("two");
+            one.src=`../folder_image/${n}.jpg`;
+            if(rnd==0)
+            one.classList.add("one");
+        else
+            one.classList.add("two");
+
+        });
+            // t1.innerHTML = `go to varanasi ${messages[n]}`;
+            // console.log(t1.innerHTML);
+
+
+            
+
+
+    </script>
+</body>
+</html>

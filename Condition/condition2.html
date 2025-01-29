@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conditon3</title>
+    <script>
+function fhei(){
+    let a=Number(document.getElementById("a").value);
+    let b=Number(document.getElementById("b").value);
+    let c=Number(document.getElementById("c").value);
+    let d=Number(document.getElementById("d").value);
+    let output=document.getElementById("amount");
+    console.log(a+b+c+d);
+    let max=a;
+    if (b>max)
+    max=b;
+if(c>max)
+max=c;
+if(d>max)
+max=d;
+output.value=max;
+
+}
+    </script>
+</head>
+<body>
+    <center>
+    A<input type="number" id="a"><br>
+B<input type="number" id="b"><br>
+    C<input type="number" id="c"><br>
+    D<input type="number" id="d"><br>
+    Result<input type="number" id="amount"><br>
+
+    <button onclick="fhei()">Hei</button>
+    <!-- <button onclick="flo()">LO</button> -->
+
+</center>
+</body>
+</html>

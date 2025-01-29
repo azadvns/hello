@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week</title>
+    <script>
+        function fday() {
+            let t1 = Number(document.getElementById("t1").value);
+
+            let output = document.getElementById("output");
+            let weekday = "Not given";
+            if (t1 == 1)
+                weekday = "Mon";
+             if (t1 == 2)
+                weekday = "tue";
+            // else
+                // weekday = "Day no must between 1 and 7.";
+            if (t1 == 3)
+                weekday = "wed";
+            if (t1 == 4)
+                weekday = "thu";
+            if (t1 == 5)
+                weekday = "fri";
+            if (t1 == 6)
+                weekday = "sat";
+            if (t1 == 7)
+                weekday = "sun";
+            output.value = weekday;
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="t1"><br>
+    <input type="text" id="output"><br>
+
+
+    <button onclick="fday()">day</button>
+</body>
+
+</html>

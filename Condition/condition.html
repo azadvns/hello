@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition</title>
+    <script>
+        function fmax() {
+            let ta = Number(document.getElementById("ta").value);
+            let tb = Number(document.getElementById("tb").value);
+            // let tc = Number(document.getElementById("tc").value);
+        let tc =document.getElementById("pay");
+            console.log(ta + tb);
+            if (ta >= tb)
+                tc.value = ta;
+            
+            else
+                tc.value = tb;
+            // td.value=tb;
+        }
+
+        function fmin() {
+            let ta = Number(document.getElementById("ta").value);
+            let tb = Number(document.getElementById("tb").value);
+            // let tc = Number(document.getElementById("tc").value);
+            let tc =document.getElementById("pay");
+            console.log(ta + tb);
+
+            if (ta<=tb)
+                tc.value = ta;
+            else
+                tc.value = tb;
+            
+        }
+    </script>
+</head>
+
+<body>
+    A<input type="number" id="ta"><br>
+    B<input type="number" id="tb"><br>
+    <!-- C<input type="number" id="tc"><br> -->
+    Result<input type="number" id="pay">
+    <!-- <label>Add<input id="ra" name="open" value="add" type="radio"></label><br>
+<label>Sub<input id="rb" name="open" value="sub" type="radio"></label><br> -->
+    <button onclick="fmax()">Max</button>
+    <button onclick="fmin()">Min</button>
+</body>
+
+</html>

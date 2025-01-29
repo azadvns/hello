@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <style>
+        @keyframes rotate{
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+            10%{transform: rotateY(10deg);}
+            80%{transform: rotatey(180deg);}
+        }
+        .spin{
+            animation-name: rotate;
+            position: absolute;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            border-radius: 20px;
+        }
+        /* ************************************************************************************************ */
+        @keyframes spin{
+            0%{transform: rotatex(0deg) ;}
+            25%{left: 30%;top: 40%;}
+            50%{top: 70%;left: 20%;}
+            100%{transform: rotateY(180deg);}
+        }
+        .rotate{
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            border-radius: 50px;
+            /* height: 200px; */
+            /* width: 200px; */
+            /* border-radius: 30px; */
+        }
+        .imagetext{
+            position: absolute;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: 100px;
+            /* left: 100px; */
+            /* animation: spin 5s infinite; */
+            font-size: 40px;
+            /* background-color: aqua; */
+            color: greenyellow;
+            z-index: 10;
+        }
+        .container
+        {
+
+            display: flex;
+            justify-content: space-around;
+        width: 100%;
+        }
+        /* *************************************************************************** */
+        @keyframes spinner{
+    0%{transform: rotatey(0deg);}
+    100%{transform: rotatey(360deg);}
+}
+.box{
+    animation-name: spinner;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+}
+/* ********************************************************************************* */
+
+@keyframes spin{
+            0%{left: 0%;top: 0%;}
+            25%{left: 10%;top: 30%;}
+            50%{left: 30%; top: 20%;}
+            100%{left: 70%;top: 10%;}
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+            
+        }
+        .rotates{
+            position: absolute;
+            animation-name: spin;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            background-color: rgb(0, 255, 128);
+            height: 500px;
+            width: 500px;
+            border-radius: 40px;
+        }
+        /* ************************************************************************************** */
+
+        @keyframes spin{
+            0%{top: 0%;left:  0%;}
+            50%{top: 30%;left: 50%;}
+            100%{top: 20%;left: 0%;}
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+        }
+        .rotat{
+            position: absolute;
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count:infinite ;
+            height: 80%;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <img class="spin" id="img" src="../folder_image/0.jpg">
+    <img class="rotates" id="gallery" src="../Kumbh_ image/0.jpeg">
+    <img class="rotat" id="photo" src="../Kumbh_ image/0.jpeg">
+
+    <script>
+        const spin=document.getElementById("img");
+        const rotate=document.getElementById("img")
+        const box=document.getElementById("img")
+        const rotates=document.getElementById("gallery");
+        const rotat=document.getElementById("photo");
+        let n=0;
+        const total=6;
+
+
+        spin.addEventListener(`animationiteration`,()=>{
+            console.log(`animationiteration`);
+            n=(n+1)% total;
+            spin.src=`../folder_image/${n}.jpg`;
+            rotate.src=`../folder_image/${n}.jpg`;
+            box.src=`../folder_image/${n}.jpg`;
+            rotates.src=`../Kumbh_ image/${n}.jpeg`;
+            rotat.src=`../Kumbh_ image/${n}.jpeg`;
+        }
+
+        );
+    </script>
+</body>
+</html>

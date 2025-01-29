@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<title>setInterval, Clear Interval</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://3.bp.blogspot.com/-py5FbTZgvjo/YDi1bsQq16I/AAAAAAAACB0/BxejbJBcHA4AVfkB33WYC3YlVmxElM7BwCK4BGAYYCw/s1600/Varanasi%2BSoftware%2BJunction%2BPhone%2BLogo.png">
+   
+<style>
+    @keyframes spinner{
+        0%{transform: rotatey(0deg);}
+        100%{transform: rotatey(360deg);}
+    }
+    .box{
+        animation-name: spinner;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        
+    }
+    
+        </style>
+
+ <script>
+var n=0;
+var loop;
+
+function startCount()
+{
+loop=setInterval(f,2000);
+
+}	
+function f()
+{
+n++;
+// document.getElementById("output").innerHTML=n;
+const box=document.getElementById("image");
+n=0;
+const total=2;
+
+console.log("t1");
+
+box.addEventListener(`animationiteration`,()=>{
+    console.log(`animation iteration`);
+    n=(n+1)% total;
+    box.src=`../../google.png`;
+}
+);
+
+}
+function stopCount()
+{
+clearInterval(loop);
+}	
+ </script>
+</head>
+<body>
+    <img class="box" id="image" src="../google.png">
+ Output<div id="output"></div><br/>
+ 
+ <input type="button" value="Start Counting" onclick="startCount()"><br/>
+ <input type="button" value="Stop Counting" onclick="stopCount()"><br/>
+ 
+</body>
+</html>

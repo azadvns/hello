@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write</title>
+    <style>
+        @keyframes line{
+            0%{right: 0%;}
+            /* 25%{right:  25%;} */
+            /* 50%{right: 50%;} */
+            100%{right: 100%;}
+        }
+        .spin{
+            position: absolute;
+            animation: line 5s linear infinite;
+            background-color: aqua;
+            color: green;
+            height: 20px;
+            overflow: hidden;
+            opacity: 1;
+            /* width: 10px; */
+        }
+@keyframes spinner{
+    0%{right: 0%;}
+    100%{right: 100%;}
+}
+        .rotate{
+            position: absolute;
+            animation: spinner 6s linear infinite;
+            background-color: aqua;
+            color: green;
+            height: 20px;
+            overflow: hidden;
+            opacity: 0.5;
+            /* width: 10px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="spin" id="t1">Kashi in the very beautiful </div>
+    <div class="rotate" id="t2">varanasi city station</div>
+    <script>
+    const t1=document.getElementById("t1").value;
+    const t2=document.getElementById("t2").value;
+
+    t1.addEventListener(`animationiteration`,()=>{
+console.log(`animationiteration`);
+// n=(n+1)% total
+t1.value=`Kashi in the very beautiful`;
+// t2.value=`varanasi city station`
+
+
+        }
+    );
+
+    t2.addEventListener(`animationiteration`,()=>{
+console.log(`animationiteration`);
+// n=(n+1)% total
+// t1.value=`Kashi in the very beautiful`;
+t2.value=`varanasi city station`
+
+
+        }
+    );
+
+    </script>
+
+</body>
+</html>

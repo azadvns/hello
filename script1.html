@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script</title>
+</head>
+<script>
+    function fcalculator() {
+        let t1 = Number(document.getElementById("t1").value);
+        let t2 = Number(document.getElementById("t2").value);
+        let t3 = document.getElementById("in");
+        console.log(t1 + t2);
+        let r1 = document.getElementById("r1").checked;
+        let r2 = document.getElementById("r2").checked;
+        console.log(r1, r2);
+        let result = "Not given";
+        if (r1)
+            result = t1 + t2;
+        if (r2 )
+            result = t1 - t2;
+        t3.value = result;
+
+    }
+</script>
+
+<body>
+    <center>
+        <input type="text" placeholder="Number1" id="t1">
+        <br>
+        <input type="text" placeholder="Number2" id="t2">
+        <br>
+        <input type="text" placeholder="Total" id="in">
+        <br>
+        <label>Add<input id="r1" name="operator" value="add" type="radio"></label><label>Sub
+
+            <input name="operator" type="radio" id="r2"></label>
+        <br>
+        <button onclick="fcalculator()">Calculator</button>
+    </center>
+</body>
+
+</html>

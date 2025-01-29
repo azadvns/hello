@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+    <style>
+        @keyframes rule {
+            /* 0%,100%{opacity: 1;}
+            50%{opacity: 0.5;} */
+
+        }
+
+        .rotate {
+            position: absolute;
+            display: flex;
+            margin-top: 50px;
+            animation-name: rule;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+            height: 200px;
+            width: 200px;
+            /* border-radius: 50px; */
+            box-shadow: 5px 5px 10px #888888;
+
+
+
+        }
+
+        .spin {
+            object-fit: cover;
+            animation-name: rule;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+
+
+        }
+
+        .spin:hover {
+            transform: scale(1.1);
+        }
+
+        /* *********************************************************  */
+        .line {
+            object-fit: cover;
+            animation-name: rule;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+
+        .line:hover {
+            transform: scale(1.1);
+        }
+
+        /* ********************************************************  */
+        .space {
+            object-fit: cover;
+            animation-name: rule;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+        }
+
+        .space:hover {
+            transform: scale(1.1);
+        }
+
+        /* ***********************************************************************  */
+        .steel {
+            object-fit: cover;
+            animation-name: rule;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .steel:hover {
+            transform: scale(1.1);
+        }
+
+        /* ************************************************************************* */
+        @keyframes name{
+            0%{right: 0%;}
+            100%{right: 100%;}
+        }        
+        
+        .was{
+animation: name 5s linear infinite;
+            position: absolute;
+            display: flex;
+            height: 40px;
+            z-index: 10;
+            background-color: blueviolet;
+            margin-top: 30%;
+            margin-left: -50%;
+            font-size: 30px;
+            color: blue;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid"><div class="was">Happy Journey To Choice</div>
+    <div class="rotate  ">
+        
+        <img class="spin" id="t1" style="border-radius: 50px; " src="../images/folder_image/0.jpg">
+    
+        
+    
+        <img class="line" id="t2" style="margin-left: 50px; border-radius: 50px; " src="../images/4.jpg">
+        <!-- <div class="imagetext">Mahadev</div> -->
+        
+        <img class="space" id="t3" style="margin-left: 50px;border-radius: 50px;" src="../images/hyderabad.jpg">
+        <!-- <div class="imagetext">Hyderabad</div> -->
+        <img class="steel" id="t4" style="margin-left: 50px;border-radius: 50px;" src="../images/Kumbh_ image/0.jpeg">
+        <!-- <div class="imagetext">Journey to Choice</div> -->
+    </div>
+    <img src="../images/lucknow.jpg">
+</div>
+    <script>
+        let spin = document.getElementById("t1");
+        let line = document.getElementById("t2");
+        let space = document.getElementById("t3");
+        let steel = document.getElementById("t4");
+        let n = 0;
+        const total = 5;
+
+
+        spin.addEventListener(`animationiteration`, () => {
+            console.log(`animationiteration`);
+            n = (n + 1) % total;
+            spin.src = `../images/folder_image/${n}.jpg`;
+            line.src = `../images/4.jpg`;
+            space.src = `../images/hyderabad.jpg`;
+            steel.src = `../images/Kumbh_ image/${n}.jpeg`;
+
+        }
+
+        );
+    </script>
+
+</body>
+
+</html>

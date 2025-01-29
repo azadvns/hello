@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flower</title>
+    <style>
+        @keyframes spin {
+            0% {
+                right: 0%;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+
+        .spinner {
+            animation: spin 5s linear infinite;
+            position: absolute;
+            background-color: lightcoral;
+            color: lightgreen;
+            overflow: hidden;
+            height: 20px;
+        }
+        /* ************************************************************************************** */
+        @keyframes line{
+0%{transform: rotatey(0deg);}
+100%{transform: rotatey(180deg);}
+
+        }
+        .rotate{
+            
+            animation: line 5s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spinner " id="t1">Go to varanasi<br>
+        
+
+    </div>
+    <img class="rotate"  style="margin-top: 20px;height: 500px;width: 100%;" src="../2.jpg">
+    <script>
+        const messages=["Hi","Hello","Go to varanasi","Lucknow","Hyderabad","Mirzamurad","Karnataka","Goa"];
+        const total=messages.length;
+        let t1 = document.getElementById("t1");
+        let n = 0;
+        
+
+
+        t1.addEventListener('animationiteration', () => {
+            console.log(`animation Iteration`);
+            n = (n + 1) % total;
+            
+
+            t1.innerHTML = `go to varanasi ${messages[n]}`;
+            console.log(t1.innerHTML);
+        //    document.getElementById("massage").classlist.add("massage");
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>

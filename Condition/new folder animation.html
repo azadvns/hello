@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        .borderwa{
+
+        }
+        .borderwa:hover{
+border-style: solid;
+border-color: darkgreen;
+        }
+        .borderwa:focus{
+border-style: solid;
+border-color: darkgreen;
+border-width: 5px;
+        }
+        .ap {
+            height: 100px;
+            width: 100px;
+            transform: rotateX(45deg) rotateY(45deg);
+            animation-name: was;
+            justify-content: center;
+            align-items: center;
+            margin-left: 50%;
+            margin-top: 50px;
+            /* animation-duration: 2s; */
+            animation-iteration-count: infinite;
+            /* box-shadow: 5px 5px 10px #888888; */
+            /* animation-direction: alternate; */
+
+
+
+        }
+
+        .ap:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes was {
+            0% {
+                transform: rotatex(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotatex(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body><input  class="borderwa" type="text">
+    <div class="ap">
+        <img class="borderwa" src="../images/kashi.jpg">
+    </div>
+</body>
+
+</html>

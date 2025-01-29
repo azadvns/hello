@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <style>
+        .were{
+            object-fit: cover;
+        }
+        .were:hover{
+            transform: scale(1.1);
+        }
+        
+
+        .innerimage {
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            width: 50%;
+            height: 50%;
+
+        }
+        .container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .innertext {
+            position: absolute;
+            left: 20%;
+            top: 20%;
+            width: 200%;
+            height: 200%;
+            /* background-color: gold; */
+            color: blue;
+            opacity: 0;
+            font-size: 40px;
+            z-index: 80;
+        }
+
+        .innertext:hover {
+            opacity: .4;
+        }
+    </style>
+</head>
+<body>
+    <div class="innertext">chalo hyderabad</div>
+    <img class=" innerimage were"  src="../images/hyderabad.jpg">
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+    <style>
+        @keyframes classes{
+            0%,100%{opacity: 1;}
+            50%{opacity: 0.5;}
+/* 0%{transform: rotatex(0deg);} */
+/* 100%{transform: rotatex(180deg);} */
+        }
+        .rotate {
+            animation-name: classes;
+            animation-iteration-count: infinite;
+            position: absolute;
+            display: flex;
+            /* border-radius: 50px; */
+            height: 200px;
+            width: 500px;
+            z-index: 10;
+            box-shadow: 5px 5px 10px #888888;
+            animation-duration: 5s;
+            
+        }
+
+        .im {
+            
+            margin-top: 50px;
+            
+
+        }
+        .spin{object-fit: cover;
+            box-shadow: 5px 5px 10px #888888;
+        }
+        .spin:hover{transform: scale(1.1);}
+        /* ********************************************************* */
+        .line{object-fit: cover;
+            box-shadow: 5px 5px 10px #888888;
+        }
+        .line:hover{transform: scale(1.1);}
+        /* ***************************************************************** */
+        .space{object-fit: cover;
+            box-shadow: 5px 5px 10px #888888;
+        }
+        .space:hover{transform: scale(1.1);}
+        /* *********************************************************************** */
+        .steel{object-fit: cover;
+            box-shadow: 5px 5px 10px #888888;
+        }
+        .steel:hover{transform: scale(1.1);}
+        
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="rotate im ">
+        <img class="spin"   id="t1" style="border-radius: 50px;" src="../images/folder_image/0.jpg">
+        <img class="line" id="t2" style="margin-left: 50px; border-radius: 50px; " src="../images/4.jpg">
+        <img class="space" id="t3" style="margin-left: 50px;border-radius: 50px;" src="../images/hyderabad.jpg">
+        <img class="steel" id="t4" style="margin-left: 50px;border-radius: 50px;" src="../images/bara.webp">
+    </div>
+    <img src="../images/lucknow.jpg">
+    <script>
+        alert(1);
+        const ispin=document.getElementById("t1");
+        const line=document.getElementById("t2");
+        const space=document.getElementById("t3");
+        const steel=document.getElementById("t4");
+        alert(2);
+        let n=0;
+        const total=5;
+alert(ispin.src);
+
+ispin.addEventListener("animationstart", () => {
+
+    alert("Added");
+});
+alert("Over");
+    //     spin.addEventListener(`animationiteration`,()=>{
+    //         alert(3);
+    //         console.log(`animation iteration`);
+    //         n=(n+1)% total;
+    //         spin.src=`../../images/folder_image/${n}.jpg`;
+    //         alert(spin.src);
+    //         line.src=`../images/${n}.jpg`;
+    //         space.src=`../images/hyderabad${n}.jpg`;
+    //         steel.src=`../images/bara${n}.webp`;
+
+    //     }
+    // );
+
+
+    </script>
+
+</body>
+
+</html>

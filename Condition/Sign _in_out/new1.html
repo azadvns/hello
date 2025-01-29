@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new</title>
+</head>
+<body>
+    <script>
+        let txt=document.createElement("input");
+        txt.type="password";
+        document.body.appendChild(txt);
+        let button=document.createElement("button");
+
+        button.textContent="click me";
+
+        button.style.padding="10px";
+        button.style.backgroundColor="green";
+        button.style.color="aqua";
+        button.style.cursor="pointer";
+        button.style.border="none";
+
+button.addEventListener("click",
+    function(){
+        alert("button clicked!" );
+    }
+);
+
+document.body.appendChild(button);
+    </script>
+</body>
+</html>

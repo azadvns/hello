@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add</title>
+    <script>
+        function fAdd() {
+            let t1 = document.getElementById("t1");
+            let t2 = document.getElementById("t2");
+            console.log(t1.value);
+            let t3 = document.getElementById("outputs");
+            // document.getElementById("board").add("b");
+            let sum = Number(t1.value) + Number(t2.value);
+            t3.value = sum;
+
+        }
+        function fSubstract() {
+            // alert("Substract")
+            let t1 = document.getElementById("t1");
+            let t2 = document.getElementById("t2");
+            console.log(t1.value);
+            let t3 = document.getElementById("outputs");
+            let Substract = Number(t1.value) - Number(t2.value);
+            t3.value = Substract;
+        }
+        function fmultiple() {
+            let t1 = document.getElementById("t1");
+            let t2 = document.getElementById("t2");
+            console.log(t1.value);
+            let t3 = document.getElementById("outputs");
+            let multiple = Number(t1.value) * Number(t2.value);
+            t3.value = multiple;
+        }
+        function fdivide() {
+            let t1 = document.getElementById("t1");
+            let t2 = document.getElementById("t2");
+            console.log(t1.value);
+            let t3 = document.getElementById("outputs");
+            let divide = Number(t1.value) / Number(t2.value);
+            t3.value = divide
+        }
+        function fPower() {
+            let t1 =Number( document.getElementById("t1").value);
+            let t2 =Number( document.getElementById("t2").value);
+            let t3 = document.getElementById("outputs");
+            let divide = Number(t1.value) / Number(t2.value);
+            t3.value = Math.pow(t1,t2);
+        }
+
+    </script>
+    
+</head>
+
+<body>
+    <center>
+        <table id="board" border="1">
+            <div>
+                <input type="text" placeholder="Enter A" id="t1">
+                <br>
+                <input type="text" placeholder="enter" id="t2">
+                <br>
+                <input type="text" placeholder="total" id="outputs">
+                <br>
+                <button onclick="fAdd()">Add</button>
+                <button onclick="fSubstract()">Substract</button>
+                <button onclick="fmultiple()">multiple</button>
+                <button onclick="fdivide()">divide</button>
+                <button onclick="fPower()">Power</button>
+            </div>
+        </table>
+    </center>
+</body>
+
+</html>

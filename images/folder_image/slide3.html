@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide3</title>
+    <style>
+        @keyframes spin{
+            0%{left: 0%;top: 0%;}
+            25%{left: 10%;top: 30%;}
+            50%{left: 30%; top: 20%;}
+            100%{left: 70%;top: 10%;}
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+            
+        }
+        .rotate{
+            position: absolute;
+            animation-name: spin;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            background-color: rgb(0, 255, 128);
+            height: 500px;
+            width: 500px;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img class="rotate" id="gallery" src="../Kumbh_ image/0.jpeg">
+    <script>
+        const rotate=document.getElementById("gallery");
+        let n=0;
+        const total=7;
+
+        rotate.addEventListener(`animationiteration`,()=>{
+            console.log(`animationiteration`);
+n=(n+1)% total;
+gallery.src=`../Kumbh_ image/${n}.jpeg`;
+        }
+    );
+    </script>
+</body>
+</html>

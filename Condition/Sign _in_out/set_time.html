@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<title>SetTimeout, ClearTimeout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://3.bp.blogspot.com/-py5FbTZgvjo/YDi1bsQq16I/AAAAAAAACB0/BxejbJBcHA4AVfkB33WYC3YlVmxElM7BwCK4BGAYYCw/s1600/Varanasi%2BSoftware%2BJunction%2BPhone%2BLogo.png">
+   
+ <script>
+
+var timeout;
+
+function showmessage()
+{
+// alert("hello");
+}	
+
+function startThetimeout()
+{
+timeout=setTimeout(showmessage,5000);
+}	
+function stopThetimeout()
+{
+clearTimeout(loop);
+}	
+ </script>
+</head>
+<body>
+ Output<div id="output"></div><br/>
+ 
+ <input type="button" value="Set Timeout" onclick="startThetimeout()"><br/>
+ <input type="button" value="Stop Timeout" onclick="stopThetimeout()"><br/>
+ 
+</body>
+</html>

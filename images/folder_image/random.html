@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New slider</title>
+    <style>
+        @keyframes rotate {
+            0% {
+                transform: rotatez(0deg);
+            }
+
+            100% {
+                transform: rotatez(360deg);
+            }
+        }
+
+        .RotateLeft {
+            animation: rotate 4s linear infinite;
+            height: 200px;
+            border-radius: 50px;
+        }
+
+        /* ********************************************************************************************************* */
+        @keyframes spin {
+            0% {
+                transform: rotatez(360deg);
+            }
+
+            100% {
+                transform: rotatez(0deg);
+            }
+
+        }
+
+
+        .RotateRight {
+
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            height: 200px;
+            /* width: 100px; */
+            border-radius: 50px;
+        }
+
+        /* *****************************************************************/
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <img class="RotateLeft" id="testanim" src="0.jpg">
+        <!-- <img class="RotateRight" id="tatt" src="0.jpg"> -->
+        <!-- <div class="same" id="t2">image hyderabad</div> -->
+    </div>
+    <script>
+        // let n = Math.floor(Math.random()*4+1 );
+
+
+        const RotateLeft = document.getElementById("testanim");
+        // const RotateRight = document.getElementById("tata");
+
+        let n = 0;
+        console.log(n);
+        const total = 7;
+        const t1 = document.getElementById("t2")
+        // *******************************************************************************
+
+        RotateLeft.addEventListener(`animationiteration`, () => {
+            // alert("Event");
+            console.log(`animation iteration `);
+            //Random
+            let rnd =Math.floor( (Math.random() *2 ));
+            console.log(rnd);
+            //Random
+            n = (n + 1) % total;
+            console.log(n,total);
+           
+            RotateLeft.classList.remove("RotateLeft");
+        
+            RotateLeft.classList.remove("RotateRight");
+         RotateLeft.src = `${n}.jpg`;
+            // RotateRight.src = `${n}.jpg`;
+            if(rnd==0)
+            RotateLeft.classList.add("RotateLeft");
+            else 
+            RotateLeft.classList.add("RotateRight");
+
+            // t1.innerHTML = `image hyderabad${n}`;
+            // console.log(t1.innerHTML);
+
+        }
+        );
+
+
+
+
+    </script>
+</body>
+
+</html>

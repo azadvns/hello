@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3d6</title>
+  <style>
+    .scene {
+      position: relative;
+      border-style: ridge;
+      height: 100%;
+      transition: perspective 0.5s ease;
+    }
+
+    .scene:hover {
+      perspective: 200px;
+    }
+
+    @keyframes spin {
+      0% {
+        right: 0%;
+      }
+
+      100% {
+        right: 100%;
+      }
+    }
+
+    .rotate {
+      display: flex;
+      position: absolute;
+      animation: spin 5s linear infinite;
+      border-radius: 50px;
+      height: 100px;
+      width: 100px;
+      z-index: 20;
+
+
+    }
+    img{
+      margin-left: 50px;
+      /* position:absolute; */
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="scene">
+    
+
+    <div class="rotate">
+      <img style="top:90%" src="../baloon1.jpeg"><br>
+      <img  src="../baloon2.jpeg">
+      <img src="../celebration1.jpeg">
+      <img src="../wordcup.jpeg">
+    </div>
+    <img style="position: absolute;" src="../images/6.jpg">
+  </div>
+
+
+</body>
+
+</html>

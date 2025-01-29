@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mon1</title>
+    <script>
+        function fmonth(){
+            let t1=Number(document.getElementById("t1").value);
+            let output=document.getElementById("output");
+            console.log(t1);
+            let monthly="not given";
+            if(t1==1)
+            monthly="January - 31";
+        if(t1==2)
+        monthly="Febuary- 28 & 29";
+        if(t1==3)
+            monthly="March- 31";
+            if(t1==4)
+            monthly="April- 30";
+            if(t1==5)
+            monthly="May- 31";
+
+            if(t1==6)
+            monthly="June- 30";
+
+            if(t1==7)
+            monthly="July- 31";
+
+            if(t1==8)
+            monthly="August- 31";
+
+            if(t1==9)
+            monthly="September- 30";
+
+            if(t1==10)
+            monthly="October- 31";
+
+            if(t1==11)
+            monthly="November- 30";
+
+            if(t1==12)
+            monthly="December- 31";
+
+            output.value=monthly;
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="t1"><br>
+    <input type="text" id="output"><br>
+    <button onclick="fmonth()">month</button>
+</body>
+</html>

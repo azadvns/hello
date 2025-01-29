@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>folder</title>
+    <style>
+        .photo {
+            display: flex;
+            animation-duration: 5s;
+            animation-name: hello;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            border-style: dotted;
+        }
+
+        .photo:hover {
+            transform: scale(1.2);
+
+        }
+
+        @keyframes hello {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            50% {
+                transform: rotatex(180deg) rotateY(180deg);
+            }
+
+            0% {
+                width: 0%;
+                top: 25%;
+            }
+
+            50% {
+                width: 50%;
+                top: 75%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function fonmousehover(event) {
+            // let onmousehover=document.getElementById("t1");
+            console.log("hello");
+            event.target.classList.remove("photo");
+            // alert("hello");
+
+
+
+
+        }
+
+    </script>
+    <!-- <div style="width: fit-content;" class="photo"> -->
+    <img onmouseover="fonmousehover(event)" class="photo" style="height: 100px;border-style: dashed;background-color: aquamarine;" src="../images/lucknow.jpg">
+    <button>Mouse Over</button>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script2</title>
+    <script>
+        function fpay(){
+            let p1 =Number(document.getElementById("p1").value);
+            let p2 =Number(document.getElementById("p2").value);
+            let p3 =document.getElementById("pay");
+            console.log(p1+p2);
+            let q1 =document.getElementById("q1").checked;
+            let q2 =document.getElementById("q2").checked;
+            console.log(q1,q2);
+            let result ="not given";
+            if (q1)
+            result =p1 + p2;
+        if (q2)
+        result  =p1 - p2;
+       p3.value = result;
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <input type="text" placeholder="enter" id="p1">
+    <br>
+    <input type="text" placeholder="enter" id="p2">
+    <br>
+    <input type="text" placeholder="enter" id="pay">
+    <br>
+<label>add<input id="q1" name="operator" value="add" type="radio"></label>
+<label>sub<input id="q2" name="operator" value="sub" type="radio"></label>
+
+
+    <button onclick="fpay()">Pay</button>
+</center>
+
+</body>
+</html>
