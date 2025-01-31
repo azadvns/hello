@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const showcodetext="show page code";
+        const hidecodetext="hide page code";
+        document.addEventListener("DOMContentLoaded",
+            function(){
+                const button=document.createElement("button");
+                button.textContent=showcodetext;
+                button.style.margin="10px";
+                button.style.padding="10px";
+                // button.style.display="none";
+                button.style.cursor="pointer";
+                const textArea=document.createElement("textarea");
+                textArea.style.width="100px";
+                textArea.style.height="100px";
+                textArea.style.margin="10px";
+                textArea.style.display="none";
+
+                const copyButton=document.createElement("button");
+                copyButton.textContent="copy to clipboard";
+                copyButton.style.margin="10px";
+                copyButton.style.padding="10px";
+                copyButton.style.display="none";
+                copyButton.style.cursor="pointer";
+
+                document.body.appendChild(button);
+                document.body.appendChild(textArea);
+                document.body.appendChild(copyButton);
+
+                button.addEventListener("click", function () {
+        if (button.textContent == showcodetext) {
+            // console.log(button);
+            button.textContent = hidecodetext;
+            const pageCode = document.documentElement.outerHTML;
+
+            textArea.value = pageCode;
+            textArea.style.display = "block";
+            copyButton.style.display = "inline-block";
+        }
+        else {
+            button.textContent = showcodetext;
+            textArea.style.display = "none";
+            copyButton.style.display = "none";
+
+
+
+        }
+    });
+
+    // Copy the code to clipboard on copy button click
+    copyButton.addEventListener("click", function () {
+        textArea.select();
+        // alert(textArea.value);
+        navigator.clipboard.writeText(textArea.value);
+        // const text = await navigator.clipboard.readText();
+        // textarea.value = text;
+        // navigator.clipboard.
+        alert("Page code copied to clipboard!");
+    });
+
+            }
+        );
+    </script>
+</body>
+</html>

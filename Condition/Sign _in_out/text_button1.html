@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    
+<script src="path"></script>
+
+    <script>
+        let txt = document.createElement("input");
+        txt.type = "text";
+        txt.id = "t1";
+
+        let tyt = document.createElement("input");
+        tyt.type = "text";
+        tyt.id = "t2";
+
+        let tzt = document.createElement("input");
+        tzt.type = "text";
+        tzt.id = "t3";
+        tzt.readOnly=true;
+
+
+        document.body.appendChild(txt);
+        document.body.appendChild(tyt);
+        document.body.appendChild(tzt);
+        let button = document.createElement("button");
+
+
+        button.style.padding = "10px";
+        button.style.cursor = "pointer";
+        button.style.border = "none";
+        document.body.appendChild(button);
+        button.textContent="Add";
+        button.addEventListener("click",
+            function () {
+                alert("button");
+                let t1=Number(document.getElementById("t1").value);
+    let t2=Number(document.getElementById("t2").value);
+    let t3=document.getElementById("t3");
+    console.log(t1+t2);
+    let result="not given";
+
+    result=t1+t2;
+    t3.value=result;
+            }
+        );
+
+
+        
+       
+
+
+
+
+    </script>
+    <!-- <button onclick="add()">add</button> -->
+    <script src="myscript.js">
+       
+    </script>
+</body>
+
+</html>

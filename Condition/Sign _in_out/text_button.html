@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="p1" placeholder="text"><br>
+    <input type="text" id="p2" placeholder="text "><br>
+    <input type="enter" id="input" placeholder="enter"><br>
+    <label>Add<input id="q1" name="operator" value="add" type="radio"></label><br>
+
+    <button onclick="fadd()">add</button>
+<script>
+
+function fadd(){
+let p1=Number(document.getElementById("p1").value);
+let p2=Number(document.getElementById("p2").value);
+let p3=document.getElementById("input");
+console.log(p1+p2);
+let q1=document.getElementById("q1").checked;
+console.log(q1);
+let result="not given";
+if(q1)
+result=p1+p2;
+p3.value=result;
+}
+</script>
+</body>
+</html>
