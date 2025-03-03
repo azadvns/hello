@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #output{
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SWAPI Fetch Example</h1>
+    <div>
+        <label for="character">Enter character ID:</label>
+        <input type="text" id="characterId" placeholder="e.g.,1">
+        <button onclick="fetchCharacter()">Fetch Character</button>
+    </div>
+
+    <div id="output"></div>
+    <script>
+        function fetchCharacter(){
+            const characterId=document.getElementById(`characterId`).value;
+            const swapiUrl=`https://swapi.dev/api/people/${characterId}/`;
+            fetch(swapiUrl)
+            .then(response=>{
+
+                if(!response.ok){
+                    throw new Error(`Error: ${response.status}-${response.statusText}`);
+
+                }
+                return response.json();
+            }
+
+            )
+            .then(CharacterData=>{
+                displaycharacterInfo(CharacterData);
+            })
+            .catch(error=>{
+                displayError(error.message);
+
+            });
+        }
+            function displayCharacterInfo(characterData){
+                const outputDiv=document.getElementById(`output`);
+                outputDiv.innerHTML=`
+                <h2>${characterData.name}</h2>
+                <p><strong>Height:</strong>${characterData.height}cm</p>
+                <p><strong>Mass</strong>${characterData.mass}kg</p>
+                <p><strong>Birth year<strong>${characterData.birth_year}</p>
+                `;
+
+            }
+        function displayError(errorMessage){
+            const outputDiv=document.getElementById(`output`);
+            outputDiv.inner=`<p style="color:red;">${errorMassege}</p>`;
+        }
+    </script>
+</body>
+</html>
