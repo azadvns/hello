@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <textarea id="r1" style="height: 300px; width: 400px;"></textarea>
+    <button onclick="process()">process</button>
+
+    <script>
+        function process(){
+            let q1=document.getElementById("r1").value;
+            console.log(q1);
+            let object=JSON.parse(q1);
+            console.log(object.length);
+
+            let n=object.length;
+            for(let i=0;i<=n-1;i++)
+        {
+console.log(object[i].name);
+
+        }
+            
+        }
+    </script>
+</body>
+</html>

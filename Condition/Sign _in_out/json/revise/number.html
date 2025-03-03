@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number</title>
+</head>
+<body>
+    <label id="timer"></label>
+    <script>
+        let loop=null;
+        let timeinterval=0;
+        let allowedtime=10;
+        const txtimer=document.getElementById("timer");
+        // console.log(timer);
+
+        function runTimer(){
+            console.log("inside run timer");
+            if(timeinterval<allowedtime)
+            timeinterval=timeinterval+1;
+        console.log(`time =${timeinterval}`);
+        txtimer.innerHTML=`time${timeinterval}`;
+        if(timeinterval>=allowedtime)
+        {
+            txtimer.innerHTML=`time over ${timeinterval}`;
+            clearInterval(loop);
+        }
+        }
+
+        function startTimer(){
+            loop=setInterval(runTimer,1000);
+        }
+        setInterval(startTimer,5000);
+    </script>
+</body>
+</html>

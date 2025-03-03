@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>revise josn</title>
+</head>
+<body>
+    <textarea id="t1" style="height: 200px;width: 300px;">
+        [
+        {
+            "name":"azad",
+            "age":"22",
+            "address":"sihorawan"
+        },
+        {
+        "name":"bhai",
+        "age":"23",
+        "address":"sihorawan"
+        }
+        ]
+    </textarea>
+    <button onclick="process()">process</button>
+    <script>
+        function process(){
+            let w1=document.getElementById("t1").value;
+            console.log(w1);
+            let az=JSON.parse(w1);
+            console.log(az.length);
+            let n=az.length;
+            for(let i=0;i<=n-1;i++)
+            {
+                let txt=document.createElement("input");
+                txt.type="text";
+                txt.value=(az[i].name);
+
+                let tyt=document.createElement("input");
+                tyt.type="text";
+                tyt.value=(az[i].age);
+
+                tzt=document.createElement("input");
+                tzt.type="text";
+                tzt.value=(az[i].address);
+
+                let newdiv=document.createElement("div");
+                newdiv.appendChild(txt);
+                newdiv.appendChild(tyt);
+                newdiv.appendChild(tzt);
+                document.body.appendChild(newdiv);
+            }
+        }
+    </script>
+</body>
+</html>

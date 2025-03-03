@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json Arry</title>
+    <style>
+        .value{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="t1" style="height: 300px;width: 400px;">
+[
+        {
+            "name":"Popat Lal",
+            "age":50,
+            "address":"Gokuldham"
+        },
+        {
+            "name":"Jetha Lal",
+            "age":50,
+            "address":"Gokuldham"
+        },{
+            "name":"MS Dhoni",
+            "age":45,
+            "address":"Ranchi"
+        }
+    ]
+    </textarea>
+    <button onclick="process()">process</button>
+    <script>
+        function process(){
+            let content=document.getElementById("t1").value;
+            console.log(content);
+            let obj=JSON.parse(content);
+            console.log(obj.length);
+            let n=obj.length;
+            for(let i=0;i<=n-1;i++)
+
+            {
+                // console.log(obj[i].name);
+
+                let txt=document.createElement("input");
+                txt.type="text";
+                txt.value=(obj[i].name);
+                
+
+                let tyt=document.createElement("input");
+                tyt.type="text";
+                tyt.value=(obj[i].age);
+                
+
+                let tzt=document.createElement("input");
+                tzt.type="text";
+                tzt.value=(obj[i].address);
+
+let newdiv=document.createElement("div");
+
+                newdiv.appendChild(txt);
+                newdiv.appendChild(tyt);
+                newdiv.appendChild(tzt);
+                document.body.appendChild(newdiv);
+            }
+        }
+    </script>
+</body>
+</html>

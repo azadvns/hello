@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json src</title>
+</head>
+<body>
+
+    <!-- <img src="../baloon1.jpeg"> -->
+     <!-- <img src="../baloon1.jpeg"> -->
+    <textarea id="t1" style="height: 300px;width: 400px;">
+     [         
+    {
+        "src":"../baloon1.jpeg"
+        }
+        ]
+    </textarea>
+    <button onclick="img()">img</button>
+    <script>
+        function img(){
+            let a1=document.getElementById("t1").value;
+            console.log(a1);
+            let content=JSON.parse(a1);
+            console.log(content.length);
+            let n=content.length;
+            for(let i=0;i<=n-1;i++)
+
+            // console.log(content[i].src);
+        {
+            let txt=document.createElement("img");
+            
+            txt.src=content[i].src;
+        
+            document.body.appendChild(txt);
+
+
+        }
+        }
+    </script>
+</body>
+</html>

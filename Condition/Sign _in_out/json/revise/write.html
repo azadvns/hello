@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes rotate{
+            0%{right: 0%;}
+            100%{right: 100%;}
+        }
+        .one{
+            animation: rotate 5s linear infinite;
+            width: 100px;
+            height: 100px;
+            /* border: 50px; */
+            overflow: hidden;
+            position: absolute;
+            background-color: aqua;
+            color: blue;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" id="t1">Happy varanasi</div>
+    <script>
+        const messages=["varanasi","lucknow" ,"banaras"];
+
+        let one=document.getElementById("t1");
+
+        let n=0;
+        const total=3;
+        console.log(n);
+        t1.addEventListener(`animationiteration`,()=>{
+console.log(`animation iteration`);
+
+t1.innerHTML=`${messages[n]}`;
+console.log(t1.innerHTML);
+
+let rnd=Math.floor(Math.random()*2);
+console.log(rnd);
+n=(n+1)% total;
+console.log(n,total);
+        }
+    );
+    </script>
+</body>
+</html>

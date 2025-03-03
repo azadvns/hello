@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image json</title>
+</head>
+<body>
+<!-- <img src="0.jpg"> -->
+
+    <textarea id="w1" style="height: 300px;width: 400px;">
+        [
+        {
+            "src":"0.jpg"
+        }
+        ]
+    </textarea>
+    <button onclick="image()">image</button>
+    <script>
+        function image(){
+            let a1=document.getElementById("w1").value;
+            console.log(a1);
+            let abc=JSON.parse(a1);
+            console.log(abc.length);
+            let n=abc.length;
+
+            for(let i=0;i<=n-1;i++)
+        {
+            let photo=document.createElement("img");
+            photo.src=(abc[i].src);
+            document.body.appendChild(photo);
+        }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="../baloon1.jpeg">
+    <img src="0.jpg">
+    <img src="1.jpg"> -->
+    <textarea id="t1" style="height: 300px;width: 400px;">
+
+        [
+        {
+            "src":"../baloon1.jpeg"
+        },
+        {
+            "src":"0.jpg"
+        },
+        {
+            "src":"1.jpg"
+        }
+        ]
+    </textarea>
+    <button onclick="process()">process</button>
+    <script>
+function process(){
+
+
+
+        let q1=document.getElementById("t1").value;
+        console.log(q1);
+        let obj=JSON.parse(q1);
+        console.log(obj.length);
+        let n=obj.length;
+
+        for(let i=0;i<=n-1;i++)
+    {
+      let image=document.createElement("img");
+      image.src=(obj[i].src);
+      document.body.appendChild(image);
+    }
+}
+    </script>
+</body>
+</html>

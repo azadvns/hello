@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+    <style>
+        @keyframes rotate{
+            0%{left: 0%; top: 0%;}
+            25%{left: 25%;top: 25%;}
+            50%{left: 50%;top: 20%;}
+            100%{left: 100%;top: 40%;}
+            0%,100%{opacity: 0;}
+            50%{opacity: 1;}
+        }
+        .spin{
+            animation-name: rotate;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img class="spin" id="photo" src="../0.jpg">
+    <script>
+        const spin=document.getElementById("photo");
+        let n=0;
+        const total=4;
+
+        spin.addEventListener(`animationiteration`,()=>{
+            console.log(`animation iteration`);
+            n=(n+1)% total;
+            photo.src=`../$[n]`;
+        }
+    );
+    </script>
+</body>
+</html>

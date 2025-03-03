@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+    <textarea id="t1" style="height: 300px;width: 400px;">
+
+        
+        [
+        {
+            "name":"azad",
+            "age":"22",
+            "address":"sihorawan"
+        },
+        {
+        "name":"bhai",
+        "age":"23",
+        "address":"sihorawan"
+        }
+        ]
+    </textarea>
+    <button onclick="process()">process</button>
+    <script>
+        function process(){
+            let r1=document.getElementById("t1").value;
+            console.log(r1);
+            let obc =JSON.parse(r1);
+            console.log(obc.length);
+            let n=obc.length;
+
+            for(let i=0;i<=n-1;i++)
+        {
+            let txt=document.createElement("input");
+            txt.type="Text";
+            txt.value=(obc[i].name);
+
+            let tyt=document.createElement("input");
+            tyt.type="text";
+            tyt.value=(obc[i].age)
+
+            let tzt=document.createElement("input");
+            tzt.type="text";
+            tzt.value=(obc[i].address);
+
+            let newdiv=document.createElement("div");
+
+            newdiv.appendChild(txt);
+            newdiv.appendChild(tyt);
+            newdiv.appendChild(tzt);
+
+            document.body.appendChild(newdiv);
+
+        }
+        }
+    </script>
+</body>
+</html>
