@@ -51,6 +51,7 @@
         .then(characterData => {
           // Display character information on the page
           displayCharacterInfo(characterData);
+          console.table(characterData);
         })
         .catch(error => {
           // Display an error message if there's an issue with the fetch
@@ -61,7 +62,7 @@
     function displayCharacterInfo(characterData) {
       const outputDiv = document.getElementById('output');
       outputDiv.innerHTML = 
-        `<h2>${characterData[0].name}</h2>`;
+        `<h2>${characterData[0].name}</h2>  <h2>${characterData[1].name}</h2>`;
      }
 
     function displayError(errorMessage) {
