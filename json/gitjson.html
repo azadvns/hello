@@ -25,14 +25,15 @@
     <div>
         <label for="character">Enter character ID:</label>
         <input type="text" id="characterId" placeholder="e.g.,1">
-        <button onclick="fetchCharacter()">Fetch Character</button>
+        <button onclick="f()">Fetch Character</button>
     </div>
 
     <div id="output"></div>
     <script>
+
         function fetchCharacter() {
 
-            const url = `https://azadvns.github.io/hello/json/one.json`;
+            const url = `https://azadvns.github.io/hello/two.json`;
             // const url=`https://swapi.dev/api/people/1`;
             fetch(url)
                 .then(response => {
@@ -41,11 +42,18 @@
                         throw new Error(`Error: ${response.status}-${response.statusText}`);
 
                     }
+                    data = response.json();
+                    console.table(data);
                     // let data = response.json();
                     // console.log(data);
-                    return response.json();
+                    return "ok";
                 });
+            return "none";
+        }
+        function f() {
 
+            let data = fetchCharacter();
+            alert(data);
         }
 
     </script>

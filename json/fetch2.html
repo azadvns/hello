@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAPI FETCH EXAMPLE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>swapi fetch Example</h2>
+    <div>
+        <label for="characterId">Enter character Id</label>
+        <input type="text" id="characterid" placeholder="e.g.1">
+        <button onclick="fetchCharacter()">fetch character</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        function fetchCharacter() {
+            const characterId = document.getElementById(`characterid`).value;
+            const swapiUrl = `http://127.0.0.1:5500/json/git.html`;
+            fetch(swapiUrl)
+                .then(Response => {
+                    if (!Response.ok) {
+                        throw new Error(`Error:${Response.status}-${Response.statusText}`);
+
+                    }
+                    return Response.json();
+
+                })
+                .then(CharacterData => {
+                    displayCharacterInfo(CharacterData);
+                })
+                .catch(error => {
+                    displayError(error.message)
+
+                });
+        }
+        function displayCharacterInfo(characterData) {
+            console.table(characterData);
+            console.table(characterData.name);
+            const outputDiv = document.getElementById(`output`);
+            outputDiv.innerHTML =
+                `<h2>${characterData.name}</h2>
+            <p><strong>Height:</strong>${characterData.height}cm</p>
+            <p><strong>Mass:</strong>${characterData.mass}kg</p>
+            <p><strong>Birth Year</strong>${characterData.birth_year}</p>
+
+            `
+
+
+        }
+        function displayError(errorMessage) {
+            let outputDiv = document.getElementById(`output`);
+            outputDiv.innerHTML = `<p style="color:red;">${errorMessage}</p>`;
+        }
+    </script>
+</body>
+
+</html>
