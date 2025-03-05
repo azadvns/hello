@@ -13,6 +13,7 @@
 
 
     <script>
+        
 
         const data = `
     [
@@ -48,9 +49,46 @@
     "explanation": "The format specifier %f is used in printf to output floating-point numbers."
 }
 ]`;
-let qno=-1;
-let n=5;
+        let qno = 0;
+        let n = 5;
+
+        function showvalue(){
+            const characterId =document.getElementById(`output`).value;
+            const swapiUrl=`https://azadvns.github.io/hello/json/question.json`;
+
+            fetch(swapiUrl)
+            .then(Response=>{
+                if(!Response.ok){
+                    throw new Error(`Error:${Response.status}-${Response.statusText}`);
+
+                }
+                return Response.json();
+            })
+            .then (CharacterData=>{
+                displayCharacterInfo(CharacterData);
+                console.table(CharacterData);
+            })
+            .catch(error=>{
+                displayError(error.message);
+            })
+        }
+function displayCharacterInfo(characterData){
+    const outputDiv=document.getElementById(`output`);
+    console.table(characterData[qno].name);
+    outputDiv.innerHTML=
+    `<h2>${characterData[qno].question}</h2>`    ;
+    qno++;
+}
+
+function displayError(errorMessage){
+    const outputDiv=document.getElementById(`output`);
+    outputDiv.innerHTML=`<p style="color: red;">${errorMessage}</p>`;
+}
+
     </script>
+    <button onclick="showvalue()">Show value</button>
+    <div id="output"></div>
+    
 </body>
 
 </html>
