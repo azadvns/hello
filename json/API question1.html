@@ -31,11 +31,53 @@ const data=`
 }
 ]
 `;
+let qno=1;
+let n=5;
+
+function Next(){
+    const characterId =document.getElementById(`output`).value;
+    const swapiUrl=`https://azadvns.github.io/hello/json/imp_question.json`;
+
+    fetch(swapiUrl)
+    .then(Response=>{
+        if(!Response.ok){
+            throw new Error(`Error:${Response.status}-${Response.statusText}`);
+
+        }
+        return Response.json();
+        
+    })
+    .then (CharacterData=>{
+        displayCharacterInfo(CharacterData);
+        console.table(CharacterData);
+
+    })
+    .catch(error=>{
+displayError(error.message);
+    })
+    
+}
+function displayCharacterInfo(characterData){
+    const outputDiv=document.getElementById(`output`);
+    console.table(CharacterData[qno].name);
+    outputDiv.innerHTML=
+    `<h2>${CharacterData[qno].impquestion}</h2>`;
+    
+    
+    
+    qno++;
+}
+function displayError(errorMessage){
+    const outputDiv=document.getElementById(`output`);
+    outputDiv.innerHTML=`<p style="color:red;">${errorMessage}</p>`;
+
+}
     </script>
-    <input id="r1" name="operator" type="radio"><br>
+    <!-- <input id="r1" name="operator" type="radio"><br>
     <input id="r2" name="operator" type="radio"><br>
     <input id="r3" name="operator" type="radio"><br>
-    <input id="r4" name="operator" type="radio"><br>
+    <input id="r4" name="operator" type="radio"><br> -->
     <button onclick="Next()">Save Next</button>
+    <div id="output"></div>
 </body>
 </html>
