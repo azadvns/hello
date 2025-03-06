@@ -9,86 +9,148 @@
 </head>
 
 <body>
+    <center>
+        <h1>QUIZ</h1>
+        <div>A game or competition in which you have to answer question</div>
+
+        <button onclick="showQuestion()">Start</button>
+    </center>
+    <h2 id="r1"></h2>
+    <h2 id="h2question"></h2>
+    <div id="output"></div>
 
 
+    <label id="op1" for="result1"> </label><input value="0" style="display: none;" id="result1" name="operator"
+        type="radio"><br>
+    <label id="op2" for="result2"> </label><input value="1" style="display: none;" id="result2" name="operator"
+        type="radio"><br>
+    <label id="op3" for="result3"></label> <input value="2" style="display: none;" id="result3" name="operator"
+        type="radio"><br>
+    <label id="op4" for="result4"></label> <input value="3" style="display: none;" id="result4" name="operator"
+        type="radio"><br>
+    <input style="display: none;" id="defaultradio" name="operator" type="radio">
 
+    <h2 id="h1answer"></h2>
     <script>
-        
+        let currentquestion;
+        const h2question = document.getElementById("h2question");
+        // const h1answer = document.getElementById("h1answer");
+
+
+        const op1 = document.getElementById("op1");
+        const op2 = document.getElementById("op2");
+        const op3 = document.getElementById("op3");
+        const op4 = document.getElementById("op4");
+        const defaultradio = document.getElementById("defaultradio");
 
         const data = `
     [
     {
         "question": "What is the purpose of the printf function in C?",
         "options": ["To take input from the user", "To output data to the console", "To declare variables", "To create functions"],
-        "answer": 1,
+        "answer": 2,
         "explanation": "The printf function is used to output formatted data to the console. It allows you to display variables, text, and other data types."
     },
     {
         "question": "What is the format specifier for an integer in printf?",
         "options": ["%d", "%f", "%c", "%s"],
-        "answer": 0,
+        "answer": 1,
         "explanation": "In printf, the format specifier %d is used to output an integer value."
     },
     {
         "question": "How do you read a string input from the user in C?",
         "options": ["scanf('%s', string);", "scanf('%d', string);", "gets(string);", "print(string);"],
-        "answer": 0,
+        "answer": 1,
         "explanation": "You can read a string input using scanf with the format specifier %s. For example, scanf('%s', string); stores the input in the variable string."
     },
     {
         "question": "Which format specifier is used for floating-point numbers?",
         "options": ["%d", "%f", "%s", "%c"],
-        "answer": 1,
+        "answer": 2,
         "explanation": "The format specifier %f is used in printf to output floating-point numbers."
     }
 ,
 {
     "question": "New Q",
     "options": ["%d", "%f", "%s", "%c"],
-    "answer": 1,
+    "answer": 2,
     "explanation": "The format specifier %f is used in printf to output floating-point numbers."
 }
 ]`;
         let qno = 0;
-        let n = 5;
+        const n = 5;
+        const questions = JSON.parse(data);
+        console.log(questions);
+        console.log(questions[0]);
 
-        function showvalue(){
-            const characterId =document.getElementById(`output`).value;
-            const swapiUrl=`https://azadvns.github.io/hello/json/question.json`;
+        function showQuestion() {
+            if (qno == 0) {
 
-            fetch(swapiUrl)
-            .then(Response=>{
-                if(!Response.ok){
-                    throw new Error(`Error:${Response.status}-${Response.statusText}`);
+                result1.style.display = "block";
+                result2.style.display = "block";
+                result3.style.display = "block";
+                result4.style.display = "block";
+            }
 
-                }
-                return Response.json();
-            })
-            .then (CharacterData=>{
-                displayCharacterInfo(CharacterData);
-                console.table(CharacterData);
-            })
-            .catch(error=>{
-                displayError(error.message);
-            })
+
+            if (qno >= 1) {
+                alert("check answer");
+                const givenanswer = getGivenAnswer();
+                if(givenanswer ==0)
+            {
+                alert("Please select an answer");
+                return;
+            }
+                const actualanswer= currentquestion.answer;
+                alert(`givenanswer =${givenanswer}   ${actualanswer}`);
+                // return;
+            }
+            
+
+            defaultradio.checked = true;
+            if (qno >= n) {
+                // alert("Test Over");
+                return;
+            }
+           
+            currentquestion = questions[qno];
+
+            qno++;
+            h2question.innerText = currentquestion.question;
+
+            r1.innerText = qno;
+
+
+
+            op1.innerText = currentquestion.options[0];
+            op2.innerText = currentquestion.options[1];
+            op3.innerText = currentquestion.options[2];
+            op4.innerText = currentquestion.options[3];
+            h1answer.innerText = currentquestion.answer;
+
         }
-function displayCharacterInfo(characterData){
-    const outputDiv=document.getElementById(`output`);
-    console.table(characterData[qno].name);
-    outputDiv.innerHTML=
-    `<h2>${characterData[qno].question}</h2>`    ;
-    qno++;
-}
+        // const outputDiv=document.getElementById(`output`);
 
-function displayError(errorMessage){
-    const outputDiv=document.getElementById(`output`);
-    outputDiv.innerHTML=`<p style="color: red;">${errorMessage}</p>`;
-}
+        function getGivenAnswer() {
+            if (defaultradio.checked)
+                return 0;
+            if (result1.checked)
+                return 1;
+            if (result2.checked)
+                return 2;
+            if (result3.checked)
+                return 3;
+            if (result4.checked)
+                return 4;
 
+        }
+
+        function text(){
+alert(getGivenAnswer());
+        }
     </script>
-    <button onclick="showvalue()">Show value</button>
-    <div id="output"></div>
-    
+
+    <button onclick="text()">Text</button>
 </body>
 
 </html>

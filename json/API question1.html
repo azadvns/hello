@@ -48,7 +48,7 @@ function Next(){
         
     })
     .then (CharacterData=>{
-        displayCharacterInfo(CharacterData);
+        // displayCharacterInfo(CharacterData);
         console.table(CharacterData);
 
     })
@@ -59,10 +59,10 @@ displayError(error.message);
 }
 function displayCharacterInfo(characterData){
     const outputDiv=document.getElementById(`output`);
-    console.table(CharacterData[qno].name);
-    outputDiv.innerHTML=
-    `<h2>${CharacterData[qno].impquestion}</h2>`;
     
+    outputDiv.innerHTML=
+    `<h2>${CharacterData[qno].question}</h2>`;
+    console.table(CharacterData[qno].question);
     
     
     qno++;
