@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green{
+            background-color: green;
+            color: lightseagreen;
+        }
+        .red{
+            background-color: red;
+            color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1  id="azad"></h1>
+   <button  onclick="correct()">currect</button>
+   <button  onclick="wrong()">wrong</button>
+   <script> 
+    const result =document.getElementById("azad");
+    
+function correct(){
+result.classList.remove("red");
+result.classList.remove("green");
+result.classList.add("green");
+result.innerText="Correct";
+
+// result.innerText="wrong";
+}
+function wrong()
+{
+    result.classList.remove("red");
+result.classList.remove("green");
+result.classList.add("red");
+result.innerText="wrong";
+}
+   </script>
+</body>
+</html>

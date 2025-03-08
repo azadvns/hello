@@ -5,35 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
+    <style>
+         .green{
+            background-color: green;
+            color: lightseagreen;
+        }
+        .red{
+            background-color: red;
+            color: lightcoral;
+        }
+    </style>
 
 </head>
 
 <body>
-    <center>
-        <h1>QUIZ</h1>
-        <div>A game or competition in which you have to answer question</div>
 
-        <button onclick="showQuestion()">Start</button>
-    </center>
-    <h2 id="r1"></h2>
-    <h2 id="h2question"></h2>
+
+    
+    <h1 style="color: blueviolet;">QUIZ</h1>
+    <div style="color: blueviolet;">A game or competition in which you have to answer question</div>
+
     <div id="output"></div>
 
 
-    <label id="op1" for="result1"> </label><input value="0" style="display: none;" id="result1" name="operator"
-        type="radio"><br>
-    <label id="op2" for="result2"> </label><input value="1" style="display: none;" id="result2" name="operator"
-        type="radio"><br>
-    <label id="op3" for="result3"></label> <input value="2" style="display: none;" id="result3" name="operator"
-        type="radio"><br>
-    <label id="op4" for="result4"></label> <input value="3" style="display: none;" id="result4" name="operator"
-        type="radio"><br>
+    <table border="1">
+<tr>
+    <td><p id="time"></p>
+        <button onclick="runMyTimer()">Timer</button>
+    </td>
+</tr>
+
+        
+        <tr>
+            <td>
+                <h2 id="r1"></h2>
+            </td>
+            <td colspan="3">
+                <h2 id="h2question"></h2>
+            </td>
+        </tr>
+        <tr>
+            <td><label id="op1" for="result1"> </label></td>
+            <td><input value="0" style="display: none;" id="result1" name="operator" type="radio"></td>
+            <td>
+                <label id="op2" for="result2"> </label>
+            </td>
+            <td><input value="1" style="display: none;" id="result2" name="operator" type="radio"></td>
+        </tr>
+
+        <tr>
+            <td> <label id="op3" for="result3"></label></td>
+            <td> <input value="2" style="display: none;" id="result3" name="operator" type="radio"> </td>
+            <td>
+
+                <label id="op4" for="result4"></label>
+            </td>
+            <td> <input value="3" style="display: none;" id="result4" name="operator" type="radio"></td>
+        </tr>
+
+<tr>
+    <td><label  >Result</label></td>
+    <td id="sahi"></td>
+    
+
+</tr>
+
+
+        <tr>
+            <h1 id="scored"></h1>
+            <h1 style="color:aquamarine;">Score</h1>
+        </tr>
+
+    </table>
+
+
+
+   <td><button onclick="showQuestion()">Submit</button></td>
+
+    
+  
+
+
     <input style="display: none;" id="defaultradio" name="operator" type="radio">
 
-    <h2 id="h1answer"></h2>
+    
     <script>
+        let currentscore = 0;
         let currentquestion;
         const h2question = document.getElementById("h2question");
+
+        const scored = document.getElementById(`scored`);
         // const h1answer = document.getElementById("h1answer");
 
 
@@ -78,12 +139,16 @@
 }
 ]`;
         let qno = 0;
+        let score = 0;
         const n = 5;
         const questions = JSON.parse(data);
-        console.log(questions);
-        console.log(questions[0]);
+        
 
+        
         function showQuestion() {
+
+   
+            
             if (qno == 0) {
 
                 result1.style.display = "block";
@@ -92,43 +157,100 @@
                 result4.style.display = "block";
             }
 
-
+          
             if (qno >= 1) {
-                alert("check answer");
+                // alert("check answer");
                 const givenanswer = getGivenAnswer();
-                if(givenanswer ==0)
-            {
-                alert("Please select an answer");
-                return;
+                if (givenanswer == 0) {
+                    alert("Please select an answer");
+                    return;
+                }
+                const actualanswer = currentquestion.answer;
+                const result=document.getElementById("sahi");
+                
+                // alert(`givenanswer =${givenanswer}   ${actualanswer}`);
+                if (givenanswer == actualanswer) {
+                    score = score + 1;
+                    result.classList.remove("red");
+                    result.classList.add("green");
+                    result.innerText="correct";
+                    
+                    
+                }
+                else {
+                    result.innerText="wrong";
+                    result.classList.add("red");
+                    result.classList.remove("green");
+                    
+
+                }
+        
+
             }
-                const actualanswer= currentquestion.answer;
-                alert(`givenanswer =${givenanswer}   ${actualanswer}`);
-                // return;
-            }
-            
+
 
             defaultradio.checked = true;
             if (qno >= n) {
-                // alert("Test Over");
+                alert("Test Over");
                 return;
             }
-           
+        
+
             currentquestion = questions[qno];
 
             qno++;
             h2question.innerText = currentquestion.question;
 
+            scored.innerText = score;
+          
+          
+
+
+            let mytimer=null;
+   const timeshow=document.getElementById("time");
+const fulltimer=15;
+
+   let count=0;
+   function timer(){
+    
+    console.log(count);
+    timeshow.innerText=count;
+    count++;
+    if(count>fulltimer){
+        timeshow.innerText="text over";
+        clearInterval(mytimer);
+        return;
+    }
+   }
+   
+
+function runMyTimer(){
+    clearInterval(mytimer);
+    count=0;
+    mytimer=setInterval(timer,1000);
+}
+
+
+
+              
+
+
             r1.innerText = qno;
-
-
 
             op1.innerText = currentquestion.options[0];
             op2.innerText = currentquestion.options[1];
+
             op3.innerText = currentquestion.options[2];
             op4.innerText = currentquestion.options[3];
-            h1answer.innerText = currentquestion.answer;
+
+
+
+          
+
 
         }
+
+  
         // const outputDiv=document.getElementById(`output`);
 
         function getGivenAnswer() {
@@ -142,15 +264,17 @@
                 return 3;
             if (result4.checked)
                 return 4;
-
+                
         }
 
-        function text(){
-alert(getGivenAnswer());
-        }
+
+
+  
     </script>
 
-    <button onclick="text()">Text</button>
+
+
+
 </body>
 
 </html>
