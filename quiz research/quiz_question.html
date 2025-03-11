@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <style>
-         .green{
+        .green {
             background-color: green;
             color: lightseagreen;
         }
-        .red{
+
+        .red {
             background-color: red;
             color: lightcoral;
         }
@@ -21,79 +22,80 @@
 <body>
 
 
-    
+
     <h1 style="color: blueviolet;">QUIZ</h1>
     <div style="color: blueviolet;">A game or competition in which you have to answer question</div>
 
     <div id="output"></div>
 
     <div id="show" style="display: none;  ">
-    <table border="1">
+        <table border="1">
 
 
 
-<tr>
-    <td><p id="time"></p>
-        <button onclick="runMyTimer()">Timer</button>
-    </td>
-</tr>
-
-        
-        <tr>
-            <td>
-                <h2 id="r1"></h2>
-            </td>
-            <td colspan="3">
-                <h2 id="h2question"></h2>
-            </td>
-        </tr>
-        <tr>
-            <td><label id="op1" for="result1"> </label></td>
-            <td><input value="0" style="display: none;" id="result1" name="operator" type="radio"></td>
-            <td>
-                <label id="op2" for="result2"> </label>
-            </td>
-            <td><input value="1" style="display: none;" id="result2" name="operator" type="radio"></td>
-        </tr>
-
-        <tr>
-            <td> <label id="op3" for="result3"></label></td>
-            <td> <input value="2" style="display: none;" id="result3" name="operator" type="radio"> </td>
-            <td>
-
-                <label id="op4" for="result4"></label>
-            </td>
-            <td> <input value="3" style="display: none;" id="result4" name="operator" type="radio"></td>
-        </tr>
-
-<tr>
-    <td><label  >Result</label></td>
-    <td id="sahi"></td>
-    
-
-</tr>
+            <tr>
+                <td>
+                    <p id="time"></p>
+                    <button onclick="runMyTimer()">Timer</button>
+                </td>
+            </tr>
 
 
-        <tr>
-            <h1 id="scored"></h1>
-            <h1 style="color:aquamarine;">Score</h1>
-        </tr>
+            <tr>
+                <td>
+                    <h2 id="r1"></h2>
+                </td>
+                <td colspan="3">
+                    <h2 id="h2question"></h2>
+                </td>
+            </tr>
+            <tr>
+                <td><label id="op1" for="result1"> </label></td>
+                <td><input value="0" style="display: none;" id="result1" name="operator" type="radio"></td>
+                <td>
+                    <label id="op2" for="result2"> </label>
+                </td>
+                <td><input value="1" style="display: none;" id="result2" name="operator" type="radio"></td>
+            </tr>
 
-    </table>
+            <tr>
+                <td> <label id="op3" for="result3"></label></td>
+                <td> <input value="2" style="display: none;" id="result3" name="operator" type="radio"> </td>
+                <td>
 
-    <input style="display: none;" id="defaultradio" name="operator" type="radio">
+                    <label id="op4" for="result4"></label>
+                </td>
+                <td> <input value="3" style="display: none;" id="result4" name="operator" type="radio"></td>
+            </tr>
 
-    <td><button onclick="showQuestion()">Submit</button></td>
-</div>
-   
+            <tr>
+                <td><label>Result</label></td>
+                <td id="sahi"></td>
 
-    
-  
-<button onclick="strat()">Start</button>
 
-    
+            </tr>
 
-   
+
+            <tr>
+                <h1 id="scored"></h1>
+                <h1 style="color:aquamarine;">Score</h1>
+            </tr>
+
+        </table>
+
+        <input style="display: none;" id="defaultradio" name="operator" type="radio">
+
+        <td><button onclick="showQuestion()">Submit</button></td>
+    </div>
+
+
+
+
+    <button id="show1" style="display: block;" onclick="strat()">Start</button>
+
+
+
+
     <script>
         let currentscore = 0;
         let currentquestion;
@@ -147,42 +149,16 @@
         let score = 0;
         const n = 5;
         const questions = JSON.parse(data);
-        
-function strat(){
-        show.style.display="block";
-    }
+
+        function strat() {
+            show.style.display = "block";
+            show1.style.display = "none";
+        }
 
         function showQuestion() {
 
-   
-            
-            let mytimer=null;
-   const timeshow=document.getElementById("time");
-const fulltimer=15;
+// alert("inside show question");
 
-   let count=0;
-   function timer(){
-    
-    console.log(count);
-    timeshow.innerText=count;
-    count++;
-    if(count>fulltimer){
-        timeshow.innerText="text over";
-        clearInterval(mytimer);
-        return;
-    }
-
-
-    function runMyTimer(){
-    clearInterval(mytimer);
-    count=0;
-    mytimer=setInterval(timer,1000);
-}
-
-
-   }
-
-            
             if (qno == 0) {
 
                 result1.style.display = "block";
@@ -191,34 +167,35 @@ const fulltimer=15;
                 result4.style.display = "block";
             }
 
-          
+
             if (qno >= 1) {
                 // alert("check answer");
                 const givenanswer = getGivenAnswer();
-                if (givenanswer == 0) {
-                    alert("Please select an answer");
-                    return;
-                }
+                // if (givenanswer == 0) {
+                   
+                    // alert("Please select an answer");
+                    // return;
+                // }
                 const actualanswer = currentquestion.answer;
-                const result=document.getElementById("sahi");
-                
+                const result = document.getElementById("sahi");
+
                 // alert(`givenanswer =${givenanswer}   ${actualanswer}`);
                 if (givenanswer == actualanswer) {
                     score = score + 1;
                     result.classList.remove("red");
                     result.classList.add("green");
-                    result.innerText="correct";
-                    
-                    
-                }
-                else {
-                    result.innerText="wrong";
-                    result.classList.add("red");
-                    result.classList.remove("green");
-                    
+                    result.innerText = "correct";
+
 
                 }
-        
+                else {
+                    result.innerText = "wrong";
+                    result.classList.add("red");
+                    result.classList.remove("green");
+
+
+                }
+
 
             }
 
@@ -228,41 +205,33 @@ const fulltimer=15;
                 alert("Test Over");
                 return;
             }
-        
+
 
             currentquestion = questions[qno];
-
+            runMyTimer();
+            
             qno++;
+            
             h2question.innerText = currentquestion.question;
-
+            
+            
             scored.innerText = score;
-          
-          
-
-   
+            
 
 
-
-              
-
-
-            r1.innerText = qno;
+            // r1.innerText = qno;
 
             op1.innerText = currentquestion.options[0];
             op2.innerText = currentquestion.options[1];
 
             op3.innerText = currentquestion.options[2];
             op4.innerText = currentquestion.options[3];
-
-
-
+           
           
-
-
         }
 
-    
-  
+
+
         // const outputDiv=document.getElementById(`output`);
 
         function getGivenAnswer() {
@@ -277,8 +246,33 @@ const fulltimer=15;
             if (result4.checked)
                 return 4;
                 
+        }
+
+
+        let mytimer = null;
+            const timeshow = document.getElementById("time");
+            let fulltimer = 5;
+
+            let count = 0;
+            function timer() {
+
+                console.log(count);
+                timeshow.innerText = count;
+                count++;
+                if (count > fulltimer) {
+                    timeshow.innerText = "text over";
+                    clearInterval(mytimer);
+                    console.log("show question before");
+                    showQuestion();
+                    return;
+                }
             }
 
+                function runMyTimer() {
+                    clearInterval(mytimer);
+                    count = 0;
+                    mytimer = setInterval(timer, 1000);
+                }
 
 
 

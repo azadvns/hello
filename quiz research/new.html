@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="time"></h1>
+    <button onclick="runMyTimer()">Timer</button>
+   <script>
+    
+    let mytimer = null;
+            const timeshow = document.getElementById("time");
+            let fulltimer = 15;
+
+            let count = 0;
+            function timer() {
+
+                console.log(count);
+                timeshow.innerText = count;
+                count++;
+                if (count > fulltimer) {
+                    timeshow.innerText = "text over";
+                    clearInterval(mytimer);
+                    showQuestion();
+                    return;
+                }
+            }
+
+                function runMyTimer() {
+                    clearInterval(mytimer);
+                    count = 0;
+                    mytimer = setInterval(timer, 1000);
+                }
+
+
+            
+
+   </script> 
+</body>
+</html>

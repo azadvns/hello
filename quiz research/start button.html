@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .showclass {
+            display: block;
+        }
+
+        .hideclass {
+            display: none;
+        }
+    </style>
+    <!-- <h1 id="show" ></h1> -->
+    <button id="show" class="showclass" onclick="start()">Start</button>
+    <div class="hideclass" id="dv">Quiz Design</div>
+
+    <script>
+        const bttn = document.getElementById("show");
+        const dv = document.getElementById("dv");
+        function start() {
+            bttn.classList.remove("showclass");
+            bttn.classList.add("hideclass");
+            dv.classList.remove("hideclass");
+            dv.classList.add("showclass");
+        }
+    </script>
+
+
+        
+</body>
+
+</html>

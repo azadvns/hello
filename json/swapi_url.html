@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swapi</title>
+    <style>
+        body{
+            font-family: Arial,  sans-serif;
+            margin: 10px;
+        }
+        #output{
+            margin-top: 20px;
+            padding: 10px;
+            border:1px solid #ccc ;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SWAPI FETCH EXAMPLE</h1>
+    <div>
+        <label for="characterId">Enter character ID</label>
+        <input type="text" id="characterId" placeholder="e.g.1">
+        <button onclick="fetchcharacter()">Fetch character</button>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        function fetchcharacter(){
+            const characterId=document.getElementById(`characterId`).value;
+            const swapiUrl=`https://azadvns.github.io/hello/json/one.json`;
+
+            fetch(swapiUrl)
+            .then(Response=>{
+                if(Response.ok){
+                    throw new Error(`Eroor:${Response.status}-${Response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(CharacterData=>{
+                displaycharacterInfo(CharacterData);
+            })
+            .catch(error=>{
+displayError(error.message);
+            });
+            
+        }
+
+        function displayCharacterInfo(characterData){
+            const outputDiv=document.getElementById(`output`);
+            outputDiv.innerHTML=`
+            <h2> ${characterData.name}</h2>
+            <p><strong>Height:</strong>${characterData.height}</p>
+            <p><strong>Mass:</strong>${characterData.mass}</p>
+            <p><strong>Birth Year:</strong>${characterData.birth_year}</p>
+            `;
+
+        }
+        function displayError(errorMessage){
+const outputDiv=document.getElementById(`output`);
+outputDiv.innerHTML = `<p style="color: red;">${errorMessage}</p>`;
+        }
+    </script>
+</body>
+</html>

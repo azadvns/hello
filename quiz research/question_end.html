@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question End</title>
+</head>
+
+<body>
+    <h1 id="ans"></h1>
+    <button onclick="question()">Question</button>
+
+    <h1 id="time"></h1>
+    <button onclick="runMYTimer()">Timer</button>
+
+    <script>
+
+
+        let mytimer = null;
+        const fulltime = 10;
+        const timeshow = document.getElementById("time");
+        let count = 0;
+
+        function timer() {
+            console.log(count);
+            timeshow.innerText = count;
+            count++;
+            if (count > fulltime) {
+                timeshow.innerText = "text over";
+                clearInterval(mytimer);
+                question();
+
+                return;
+            }
+        }
+        function runMYTimer() {
+            count=0;
+            clearInterval(mytimer);
+            count++;
+            mytimer = setInterval(timer, 1000);
+
+        }
+
+            let qno = 0;
+            const n = 10;
+
+
+            function question() {
+                if (qno >= 10) {
+                    alert = ("time over");
+                    return;
+                }
+                qno++;
+                ans.innerText = qno;
+                runMYTimer();
+            }
+
+        
+
+    </script>
+</body>
+
+</html>
