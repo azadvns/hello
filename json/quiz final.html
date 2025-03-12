@@ -24,12 +24,15 @@
         <div id="d1" class="no"> All question attempt
             <table border="1">
                 <tr>
+
+
+                    <!-- <td><button onclick="runMYTimer()">Timer</button></td> -->
+                    <td>
+                        <h2 id="ans">Answer</h2>
+                    </td>
                     <td>
                         <p id="time">Time</p>
                     </td>
-
-
-                    <td><button onclick="runMYTimer()">Timer</button></td>
 
                 </tr>
                 <br>
@@ -55,9 +58,9 @@
                     <td> <label id="o4" for="r4">D</label></td>
                     <td><input id="r4" type="radio" name="operator"></td>
                 </tr>
-                
-                    
-                
+
+
+
 
                 <tr>
                     <td><button onclick="submit()">submit</button>
@@ -79,10 +82,10 @@
 
         const que = document.getElementById("que");
         function showQuestion(qno) {
-            currentquestion = questions[qno - 1];
+            currentquestion = questions[qno -1];
             que.innerText = currentquestion.question;
 
-
+            ans.innerText=currentquestion.answer;
 
             o1.innerText = currentquestion.option[0];
             o2.innerText = currentquestion.option[1];
@@ -90,19 +93,21 @@
             o4.innerText = currentquestion.option[3];
             setdefauldchecked();
         }
+        // *****************************************************************************
 
-        // const result = document.getElementById("sahi");
-        // const scored = document.getElementById("scored");
+
 
         function submit() {
 
-            let opt = getGivenAnswer();
-            alert(opt);
+            // let opt = getGivenAnswer();
+            // alert(opt);
+            let ans = resultcorrect();
+
 
         }
 
 
-
+        // **************************************************************************************
 
 
 
@@ -125,21 +130,69 @@
             if (r4.checked)
                 return 4;
         }
+        // *********************************************************************
+        function setdefauldchecked() {
+            defauld.checked = true;
+        }
+        // ***********************************************************************
 
-function setdefauldchecked(){
-    defauld.checked=true;
-}
 
+        // ****************************************************************************************
+        
+        function resultcorrect() {
+
+            const result = document.getElementById("sahi");
+            const actualanswer=currentquestion.answer;
+
+            if (getGivenAnswer() == actualanswer) {
+                score = score + 1;
+
+                result.innerText = "correct";
+            }
+            else {
+                result.innerText = "wrong";
+            }
+
+        }
+
+
+        // *******************************************************************
+
+        // let mytimer=null;
+        // const timeshow=document.getElementById("time");
+        // let fulltimer=10;
+        // let count=0;
+
+        // function timer(){
+        //     console.log(count);
+        //     timeshow.innerText=count;
+        //     count++;
+        //     if(count>fulltimer){
+        //         timeshow.innerText="text over";
+        //         clearInterval(mytimer);
+        //         console.log("show question");
+        //     }
+        // }
+        // function runMYTimer(){
+        //     clearInterval(mytimer);
+        //     count=0;
+        //     mytimer= setInterval(timer,1000);
+        // }
+
+        // ***************************************************************************
 
         function start() {
             hideStartButton();
             showQuestionDiv();
-            showQuestion(1);
+            showQuestion(2);
             setdefauldchecked();
+
+            // runMYTimer();
 
 
 
         }
+        // **************************************************************************************
         function showStartButton() {
             b1.classList.add("show");
             b1.classList.remove("no");
@@ -177,7 +230,7 @@ function setdefauldchecked(){
         },{
        "question":"What is the name of the weak zone of the earths crust?",
         "option":["Seismic","Cosmic","Formic","Anaemic"],
-        "answer":"0"
+        "answer":"1"
         },{
         "question":"Where was  India's first national Museum opened?",
         "option":["Delhi","Hyderabad","Rajasthan","Mumbai"],
@@ -198,7 +251,11 @@ function setdefauldchecked(){
 
         let qno = 0;
         const n = 5;
+      let  score=0;
+      let currentquestion;
+      let currentscore=0;
 
+    //   const que=document.getElementById("")
 
         // const scored=document.getElementById("scored");
 
