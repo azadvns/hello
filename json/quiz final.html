@@ -14,95 +14,162 @@
             display: none;
         }
     </style>
-    
+
 </head>
 
 <body>
     <center>
-    <button id="b1" class="show" onclick="start()">Start</button>
-    
-    <div id="d1" class="no"> All question attempt
-        <table border="1">
-<br>    
-<tr><td id="que">Question</td>
-<td id="scored">score</td>
-</tr>
+        <button id="b1" class="show" onclick="start()">Start</button>
+
+        <div id="d1" class="no"> All question attempt
+            <table border="1">
+                <tr>
+                    <td>
+                        <p id="time">Time</p>
+                    </td>
 
 
- <tr>  <td> <label id="o1" for="r1">A</label></td><td><input id="r1" type="radio" name="operator"></td></tr>
- <tr> <td> <label id="o2" for="r2">B</label></td><td><input id="r2" type="radio" name="operator"></td></tr>
- <tr><td> <label id="o3" for="r3">C</label></td><td><input id="r3" type="radio" name="operator"></td></tr>
- <tr>  <td> <label id="o4" for="r4">D</label></td><td><input id="r4" type="radio" name="operator"></td></tr>
- <tr><td><button onclick="submit()">submit</button>
-<p id="time"></p>
-</td>
- <td><button onclick="runMYTimer()">Timer</button></td>
-</tr>
-    </br>
-</table>
-</div>
-</center>
+                    <td><button onclick="runMYTimer()">Timer</button></td>
+
+                </tr>
+                <br>
+                <tr>
+                    <td id="que">Question</td>
+                    <td id="scored">score</td>
+                </tr>
 
 
-
-
-<script>
-
-    const que=document.getElementById("que");
-    function showQuestion(qno)
-    {
-    currentquestion=questions[qno-1];
-    que.innerText=currentquestion.question;
-    
-    
-    
-    o1.innerText=currentquestion.option[0];
-    o2.innerText=currentquestion.option[1];
-    o3.innerText=currentquestion.option[2];
-    o4.innerText=currentquestion.option[3];
-    }
-    
-    
-    
-    
-            function start() {
-                hideStartButton();
-                showQuestionDiv();
-                showQuestion(1);
-    
-    
-    
-            }
-            function showStartButton() {
-                b1.classList.add("show");
-                b1.classList.remove("no");
-    
-    
-    
-            }
-    
-            function hideQuestionDiv() {
-                d1.classList.remove("show");
-                d1.classList.add("no");
-    
-    
-    
-            }
-            function showQuestionDiv() {
-                d1.classList.add("show");
-                d1.classList.remove("no");
+                <tr>
+                    <td> <label id="o1" for="r1">A</label></td>
+                    <td><input id="r1" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td> <label id="o2" for="r2">B</label></td>
+                    <td><input id="r2" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td> <label id="o3" for="r3">C</label></td>
+                    <td><input id="r3" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td> <label id="o4" for="r4">D</label></td>
+                    <td><input id="r4" type="radio" name="operator"></td>
+                </tr>
                 
-    
-    
-    
-            }
-            function hideStartButton() {
-                b1.classList.add("no");
-                b1.classList.remove("show");
-                // b1.classList.add("show");
-            }
-    
-    const data=`
+                    
+                
+
+                <tr>
+                    <td><button onclick="submit()">submit</button>
+                    <td>
+                        <div id="sahi">Result</div>
+                    </td>
+                </tr>
+                </br>
+                <!-- <tr><td><button onclick="setdefauldchecked()">setdefauldchecked</button></td></tr> -->
+            </table>
+        </div>
+        <input class="no" id="defauld" type="radio" checked name="operator">
+    </center>
+
+
+
+
+    <script>
+
+        const que = document.getElementById("que");
+        function showQuestion(qno) {
+            currentquestion = questions[qno - 1];
+            que.innerText = currentquestion.question;
+
+
+
+            o1.innerText = currentquestion.option[0];
+            o2.innerText = currentquestion.option[1];
+            o3.innerText = currentquestion.option[2];
+            o4.innerText = currentquestion.option[3];
+            setdefauldchecked();
+        }
+
+        // const result = document.getElementById("sahi");
+        // const scored = document.getElementById("scored");
+
+        function submit() {
+
+            let opt = getGivenAnswer();
+            alert(opt);
+
+        }
+
+
+
+
+
+
+
+
+
+        function getGivenAnswer() {
+            if (defauld.checked)
+                return 0;
+
+            if (r1.checked)
+                return 1;
+
+            if (r2.checked)
+                return 2;
+
+            if (r3.checked)
+                return 3;
+
+            if (r4.checked)
+                return 4;
+        }
+
+function setdefauldchecked(){
+    defauld.checked=true;
+}
+
+
+        function start() {
+            hideStartButton();
+            showQuestionDiv();
+            showQuestion(1);
+            setdefauldchecked();
+
+
+
+        }
+        function showStartButton() {
+            b1.classList.add("show");
+            b1.classList.remove("no");
+
+
+
+        }
+
+        function hideQuestionDiv() {
+            d1.classList.remove("show");
+            d1.classList.add("no");
+
+
+
+        }
+        function showQuestionDiv() {
+            d1.classList.add("show");
+            d1.classList.remove("no");
+
+
+
+
+        }
+        function hideStartButton() {
+            b1.classList.add("no");
+            b1.classList.remove("show");
+            // b1.classList.add("show");
+        }
+
+        const data = `
     [{
         "question":"Which of the three bank will be merged with the other two to create Indias third-largest bank",
         "option":["Panjab National Bank","Indian BAnk","Bank of Baroda","Dena Bank"],
@@ -127,16 +194,16 @@
         ]
         
     `;
-    const questions=JSON.parse(data);
-    
-    let qno=0;
-    const n=5;
-    
-    
-    // const scored=document.getElementById("scored");
-    
-    
-        </script>
+        const questions = JSON.parse(data);
+
+        let qno = 0;
+        const n = 5;
+
+
+        // const scored=document.getElementById("scored");
+
+
+    </script>
 </body>
 
 </html>
