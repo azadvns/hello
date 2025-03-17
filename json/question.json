@@ -3,7 +3,9 @@
         "question": "What is the purpose of the printf function in C?",
         "options": ["To take input from the user", "To output data to the console", "To declare variables", "To create functions"],
         "answer": 1,
-        "explanation": "The printf function is used to output formatted data to the console. It allows you to display variables, text, and other data types."
+        "explanation": "The printf function is used to output formatted data to the console. It allows you to display variables, text, and other data types.",
+        "src":"images/kishorekumar.png"
+
     },
     {
         "question": "What is the format specifier for an integer in printf?",

@@ -29,6 +29,7 @@
                     <td><button onclick="runMYTimer()">Timer</button></td>
                     <td>
                         <h2 id="ans">Answer</h2>
+                        <img src="../assets/brand/word.jpeg">
                     </td>
                     <td colspan="4">
                         <p id="time">Time</p>
@@ -102,7 +103,8 @@
             console.log("question step")
             runMYTimer();
 
-            ans.innerText = `Answer = ${currentquestion.answer}`;
+            // ans.innerText = `Answer = ${currentquestion.answer}`;
+            const ans=document.createElement(`img`); 
 
             scored.innerText = score;
             h2q.innerText = qno;
