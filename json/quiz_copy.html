@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Final</title>
+    <style>
+        .show { display: block; }
+        .no { display: none; }
+        #time { font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <center>
+        <button id="b1" class="show" onclick="start()">Start</button>
+
+        <div id="d1" class="no"> 
+            All question attempt
+            <table border="1">
+                <tr>
+                    <td><h1 id="img">Image</h1></td>
+                    <td><h2 id="ans">Answer</h2></td>
+                    <td colspan="4"><p id="time">Time</p></td>
+                </tr>
+                <tr>
+                    <td><div id="h2q">Question No</div></td>
+                    <td id="que" colspan="4">Question</td>
+                    <td id="scored">Score: 0</td>
+                </tr>
+                <tr>
+                    <td><label>A</label></td>
+                    <td><label id="o1" style="border-style: ridge;"></label></td>
+                    <td><input id="r1" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>B</label></td>
+                    <td><label id="o2"></label></td>
+                    <td><input id="r2" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>C</label></td>
+                    <td><label id="o3"></label></td>
+                    <td><input id="r3" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>D</label></td>
+                    <td><label id="o4"></label></td>
+                    <td><input id="r4" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="submit()">Submit</button></td>
+                    <td colspan="2">
+                        <div>Result</div>
+                    </td>
+                    <td colspan="2">
+                        <div id="sahi"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <input class="no" id="defauld" type="radio" checked name="operator">
+    </center>
+
+    <script>
+        let currentqno = 0;
+        let score = 0;
+        let mytimer = null;
+        let count = 0;
+        const fulltimer = 30;
+        const timeshow = document.getElementById("time");
+        const questions = JSON.parse(`
+        [{
+            "question": "Who was the best Singer image",
+            "option": ["Kishore kumar", "Lata Mangeshwar", "Ammitab Bachhan", "Nana Patakar "],
+            "answer": 0,
+            "src": "images/kishorekumar.png"
+        },{
+            "question": "Who was the prime minister of India?",
+            "option": ["Modi", "Amit Shah", "Yogi", "Rekha Gupta"],
+            "answer": 0,
+            "src": "images/modi.png"
+        },{
+            "question": "Vijay Thalapati you are from",
+            "option": ["Karnataka", "Hyderabad", "Rajasthan", "Mumbai"],
+            "answer": 1,
+            "src": "images/vijaythalapati.png"
+        },{
+            "question": "Punit Rajkumar where are from",
+            "option": ["Lucknow", "Maharastra", "Gujrat", "Karnataka"],
+            "answer": 3,
+            "src": "images/punith rajkumar.png"
+        },{
+            "question": "The game of 7crore film of hero",
+            "option": ["Shahrukh Khan", "Ajay Kumar", "Amitab Bachhan", "Sunil Satti"],
+            "answer": 2,
+            "src": "images/amitab bachhan.png"
+        }]
+        `);
+
+        function showQuestion(qno) {
+            currentquestion = questions[qno];
+            que.innerText = currentquestion.question;
+            img.innerHTML = `<img style="width:100px; height:100px;" src="${currentquestion.src}">`;
+            o1.innerText = currentquestion.option[0];
+            o2.innerText = currentquestion.option[1];
+            o3.innerText = currentquestion.option[2];
+            o4.innerText = currentquestion.option[3];
+            scored.innerText = "Score: " + score;
+            runMYTimer();
+        }
+
+        function submit() {
+            let opt = getGivenAnswer();
+            if (opt === -1) {
+                alert("Please select an answer!");
+                return;
+            }
+
+            const result = document.getElementById("sahi");
+            if (opt === currentquestion.answer) {
+                score++;
+                result.innerText = "Correct";
+            } else {
+                result.innerText = "Wrong";
+            }
+
+            currentqno++;
+            if (currentqno < questions.length) {
+                showQuestion(currentqno);
+            } else {
+                alert("Quiz completed! Final score: " + score);
+            }
+        }
+
+        function getGivenAnswer() {
+            if (r1.checked) return 0;
+            if (r2.checked) return 1;
+            if (r3.checked) return 2;
+            if (r4.checked) return 3;
+            return -1; // No answer selected
+        }
+
+        function runMYTimer() {
+            clearInterval(mytimer);
+            count = 0;
+            mytimer = setInterval(timer, 1000);
+        }
+
+        function timer() {
+            timeshow.innerText = count;
+            count++;
+            if (count > fulltimer) {
+                timeshow.innerText = "Time's up!";
+                clearInterval(mytimer);
+                submit();
+            }
+        }
+
+        function start() {
+            hideStartButton();
+            showQuestionDiv();
+            currentqno = 0;
+            showQuestion(currentqno);
+        }
+
+        function showStartButton() {
+            b1.classList.add("show");
+            b1.classList.remove("no");
+        }
+
+        function hideStartButton() {
+            b1.classList.add("no");
+            b1.classList.remove("show");
+        }
+
+        function showQuestionDiv() {
+            d1.classList.add("show");
+            d1.classList.remove("no");
+        }
+
+        function hideQuestionDiv() {
+            d1.classList.remove("show");
+            d1.classList.add("no");
+        }
+    </script>
+</body>
+</html>

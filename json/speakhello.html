@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning</title>
+</head>
+
+<body>
+   
+    <button onclick="speaktext()">Speak</button>
+    <script>
+        let utterance;
+
+        function speaktext(message) {
+
+
+
+            utterance = new SpeechSynthesisUtterance(message);
+            utterance.rate = 1;
+            utterance.pitch = 100;
+            window.speechSynthesis.speak(utterance);
+        }
+        speaktext("What is the capital of the US? your options are: a)Washington, b)Chicago, c) Los Angeles, and d) Las Vegas");
+    </script>
+</body>
+
+</html>

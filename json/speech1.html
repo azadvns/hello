@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spich</title>
+</head>
+<body>
+    <h2>Simple Example</h2>
+    <textarea id="texttospeak" rows="5" placeholder="enter the text...."></textarea><br>
+    
+
+    
+        <button onclick="speaktext()">speak</button>
+        <button onclick="pausespeech()">pause</button>
+        <button onclick="resumespeech()">resume</button>
+        <button onclick="cancelspeech()">cancel</button>
+
+    
+    <script>
+
+let utterance;
+
+
+        function speaktext(){
+            const text =document.getElementById("texttospeak").value;
+            if(text.trim()===``){
+                alert("please");
+                return;
+            }
+            utterance=new SpeechSynthesisUtterance(text);
+            utterance.rate=1;
+            utterance.pitch=1;
+            
+            utterance.onerror=function(event){
+                // console.error(`speech synthasysis failed:`,Event.error)
+            };
+            window.speechSynthesis.speak(utterance);
+        }
+
+        
+
+        function pausespeech(){
+            window.speechSynthesis.pause();
+        }
+
+        function resumespeech(){
+            window.speechSynthesis.resume();
+        }
+
+        function cancelspeech(){
+            window.speechSynthesis.cancel();
+        }
+    </script>
+</body>
+</html>

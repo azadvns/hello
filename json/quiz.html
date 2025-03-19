@@ -22,14 +22,18 @@
         <button id="b1" class="show" onclick="start()">Start</button>
 
         <div id="d1" class="no"> All question attempt
+
             <table border="1">
                 <tr>
 
 
-                    <td><button onclick="runMYTimer()">Timer</button></td>
+                    <!-- <td><button onclick="runMYTimer()">Timer</button></td> -->
+                    <td>
+                        <h1 id="img">Image</h1>
+                    </td>
                     <td>
                         <h2 id="ans">Answer</h2>
-                        <img src="../assets/brand/word.jpeg">
+                        <!-- <img src="../assets/brand/word.jpeg">   -->
                     </td>
                     <td colspan="4">
                         <p id="time">Time</p>
@@ -81,10 +85,18 @@
                     </td>
                 </tr>
                 </br>
+
                 <!-- <tr><td><button onclick="setdefauldchecked()">setdefauldchecked</button></td></tr> -->
             </table>
         </div>
         <input class="no" id="defauld" type="radio" checked name="operator">
+
+        <!-- <textarea id="td" ></textarea> -->
+        <!-- <button onclick="speaktext()">speak</button>
+        <button onclick="pausespeech()">pause</button>
+        <button onclick="resumespeech()">resume</button>
+        <button onclick="cancelspeech()">cancel</button> -->
+
     </center>
 
 
@@ -92,19 +104,23 @@
 
     <script>
         let currentqno = 1;
-        let marksscored=0;
+        // let src=0;
+        let utterance;
 
 
         function showQuestion(qno) {
             currentquestion = questions[qno - 1];
             // qno++;
             que.innerText = currentquestion.question;
-
+            speaktext(`${currentquestion.question},${currentquestion.option[0]},${currentquestion.option[1]},${currentquestion.option[2]},${currentquestion.option[3]}`);
+            
+            img.innerHTML = `<img style="width:100px; height:100px;" src="${currentquestion.src}">`;
             console.log("question step")
             runMYTimer();
 
-            // ans.innerText = `Answer = ${currentquestion.answer}`;
-            const ans=document.createElement(`img`); 
+            ans.innerText = `Answer = ${currentquestion.answer}`;
+            // const ans=document.getElementById(`ans`); 
+
 
             scored.innerText = score;
             h2q.innerText = qno;
@@ -115,12 +131,11 @@
             o3.innerText = currentquestion.option[2];
             o4.innerText = currentquestion.option[3];
             setdefauldchecked();
-
+            speaktext();
         }
         // *****************************************************************************
 
-
-
+        // *********************************************************************
         function submit() {
 
             let opt = getGivenAnswer();
@@ -129,9 +144,9 @@
 
             currentqno;
             showQuestion(currentqno++);
-            runMYTimer();
+            // runMYTimer();
 
-
+            // speaktext();
 
         }
 
@@ -174,6 +189,7 @@
             const result = document.getElementById("sahi");
             const actualanswer = currentquestion.answer;
 
+
             if (getGivenAnswer() == actualanswer) {
                 // score++;
                 score = score + 1;
@@ -190,7 +206,7 @@
         let mytimer = null;
         const timeshow = document.getElementById("time");
         let count = 0;
-        let fulltimer = 5;
+        let fulltimer = 10;
 
         function timer() {
             console.log(count);
@@ -213,9 +229,33 @@
 
         }
 
+        // ***********************************speech****************************************************
+
+        function speaktext(text) {
+        
+            utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1;
+            utterance.pitch = 1;
+            utterance.onerror = function (event) {
+                // showQuestion(currentqno++);
+                return;
+            };
+            window.speechSynthesis.speak(utterance);
+            
+        }
 
 
+        // function pausespeech() {
+        //     window.speechSynthesis.pause();
+        // }
 
+        // function resumespeech() {
+        //     window.speechSynthesis.resume();
+        // }
+
+        // function cancelspeech() {
+        //     window.speechSynthesis.cancel();
+        // }
 
         // ****************************************************************************
         function start() {
@@ -225,10 +265,10 @@
             h2q.innerText = `Question No ${currentqno}`;
             showQuestion(currentqno++);
             setdefauldchecked();
+            //  image();
 
+            
 
-
-            // runMYTimer();
 
 
 
@@ -264,29 +304,34 @@
         }
 
         const data = `
-    [{
-        "question":"Which of the three bank will be merged with the other two to create Indias third-largest bank",
-        "option":["Panjab National Bank","Indian Bank","Bank of Baroda","Dena Bank"],
-        "answer":"1"
-        },{
-       "question":"What is the name of the weak zone of the earths crust?",
-        "option":["Seismic","Cosmic","Formic","Anaemic"],
-        "answer":"1"
-        },{
-        "question":"Where was  India's first national Museum opened?",
-        "option":["Delhi","Hyderabad","Rajasthan","Mumbai"],
-        "answer":"3"
-        },{
-        "question":"In 2019,Which popular singer was awarded the Bharat Ratna award?",
-        "option":["Lata Mangeshkar","Asha Bhosle","Bhupen Hazarika","Manna Dey"],
-        "answer":"2"
-        },{
-        "question":"The word's nation 5G mobile network was launched by which country?",
-        "option":["Japan","Asia","South Korea","Malaysia"],
-        "answer":"2"
-        }
-        ]
-        
+   [{
+    "question":" Who was the best Singer image",
+    "option":["Kishore kumar","Lata Mangeshwar","Ammitab Bachhan","Nana Patakar "],
+    "answer":"1",
+    "src":"images/kishorekumar.png"
+    },{
+   "question":"What is the prime minister india ",
+    "option":["Modi","Amit Shah","Yogi","Rekha Gupta"],
+    "answer":"1",
+    "src":"images/modi.png"
+    },{
+   "question":"Vijay Thalapati your are from",
+    "option":["Karnataka","Hyderabad","Rajasthan","Mumbai"],
+    "answer":"2",
+    "src":"images/vijaythalapati.png"
+    },{
+    "question":"Punit Rajkumar where are from",
+    "option":["Lucknow ","Maharastra ","Gujrat "," karnataka "],
+    "answer":"4",
+    "src":"images/punith rajkumar.png"
+    },{
+    "question":"The game of 7crore film of hero",
+    "option":["Shahrukh Khan","Ajay Kumar","Amitab Bachhan ","Sunil Satti"],
+    "answer":"3",
+    "src":"images/amitab bachhan.png"
+    }
+    ]
+         
     `;
         const questions = JSON.parse(data);
 
@@ -294,8 +339,10 @@
         const n = 5;
         let score = 0;
         let currentquestion;
+
         let currentscore = 0;
         let actualanswer;
+
 
 
         const que = document.getElementById("que");

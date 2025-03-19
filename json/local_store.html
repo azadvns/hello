@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="store()">store</button><br>
+    <button onclick="retrieve()">retrieve</button><br>
+
+   Name <input type="text" id="i1" placeholder="Name"><br>
+    Age<input type="text" id="i2" placeholder="Age"><br>
+  Address  <textarea id="t1" placeholder="Address"></textarea><br>
+
+    <script>
+        function store(){
+            let nn=document.getElementById("i1").value;
+            console.log(nn);
+            localStorage.setItem(`Name`,nn);
+
+
+            let mm=document.getElementById("i2").value;
+            console.log(mm);
+            localStorage.setItem(`Age`,mm);
+
+            let ll=document.getElementById("t1").value;
+            console.log(ll);
+            localStorage.setItem(`Address`,ll);
+
+
+        }
+
+        function retrieve(){
+            let nn=localStorage.getItem("name");
+            document.getElementById("i1").value=nn;
+
+            let mm=localStorage.getItem("age");
+            document.getElementById("i2").value=mm;
+
+            let ll=localStorage.getItem("address");
+            document.getElementById("t1").value=ll;
+        }
+    </script>
+</body>
+</html>

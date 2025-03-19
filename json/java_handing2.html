@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling in JavaScript</title>
+</head>
+<body>
+
+    <button id="myButton">Click me</button>
+
+    <script>
+        const button = document.getElementById('myButton');
+
+        // Add an event listener with the event object
+        button.addEventListener('click', function(event) {
+            // Access event properties
+            alert(`Button clicked at (${event.clientX}, ${event.clientY})`);
+        });
+    </script>
+
+</body>
+</html>

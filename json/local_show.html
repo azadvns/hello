@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <button onclick="storage()">Store Data</button>
+    Name <input type="text" id="txtname" placeholder="enter"><br>
+
+
+    <button onclick="retrieve()">Retrieve Data</button>
+
+
+    <script>
+        function storage() {
+            let nm = document.getElementById("txtname").value;
+            console.log(nm);
+
+            localStorage.setItem(`name`, nm);
+
+        }
+
+        function retrieve() {
+            let nm = localStorage.getItem("name");
+            document.getElementById("txtname").value = nm;
+
+        }
+    </script>
+</body>
+
+</html>
