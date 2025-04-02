@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommorce</title>
+    <style>
+        .image {
+            display: flex;
+            flex-direction: row;
+            box-shadow: 5px 5px 10px #888888;
+            margin-top: 50px;
+            height: 200px;
+            cursor: pointer;
+            /* background-color: aqua; */
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+        .force{
+            object-fit: cover;
+        }
+        .force:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <img style="margin-left: 900px; height: 50px; width: 50px;" src="../images/shopping card.png">
+
+    <div style="margin-left: 400px;margin-top: 100px;">Search
+        <input style="height: 20px; width: 200px;  border-radius: 20px; color: aqua; " type="text" id="t1"
+            onchange="selectimage()" onkeyup="selectimage()" placeholder="Search">
+    </div>
+    <div class="col">
+        <div class="image">
+            <img onchange="add()"  value="+" id="w1" class="force" style="margin: 10px; " src="../images/book.jpeg" alt="book">
+           
+            <img onchange="add()" value="+" id="w2" class="force" style="margin: 10px;" src="../images/camera.jpeg" alt="camera">
+            <img onchange="add()" id="w3" class="force" style="margin: 10px;" src="../images/cloth.jpeg" alt="cloth">
+            <img onchange="add()" id="w4" class="force" style="margin: 10px;" src="../images/cloth1.jpeg" alt="cloth">
+        </div>
+        <div class="image">
+            <img onchange="add()" id="w5" class="force" style="margin: 10px; " src="../images/bag1.jpeg" alt="bag">
+            <img onchange="add()" id="w6" class="force" style="margin: 10px;" src="../images/laptop.jpeg" alt="laptop">
+            <img onchange="add()" id="w7" class="force" style="margin: 10px;" src="../images/mobile.avif" alt="mobile">
+            <img onchange="add()" id="w8" class="force" style="margin: 10px;" src="../images/fan.jpeg" alt="fan">
+        </div>
+    </div>
+    <button  id="c1" onclick="add()">+</button><br>
+    <button  id="c1" onclick="negative()">-</button>
+    <script>
+let count=Number(localStorage.getItem("count"));
+const td1=document.getElementById("w1");
+
+function add(){
+    console.log(count);
+            localStorage.getItem(`count`,count);
+            td1.innerHTML=count;
+            count++;
+
+}
+
+function negative(){
+    console.log(count);
+            localStorage.getItem(`count`,count);
+            td1.innerHTML=count;
+            count--;
+   
+}
+
+// ****************************************************************************************
+        function selectimage() {
+            let name = document.getElementById("t1").value.toLowerCase();
+            console.log(name);
+            let image = document.getElementsByTagName("img");
+            console.log(image.length);
+            n = image.length;
+
+            for (let i = 1; i <= n - 1; i++) {
+                let x = (image[i].alt.toLowerCase());
+                console.log(x);
+                if (x.includes(name)) {
+                    image[i].style.display = "block";
+                }
+                else {
+                    image[i].style.display = "none"
+                }
+            }
+            // local();
+           
+        }
+        
+
+        // function local() {
+        //     let w1 = document.getElementById("t1");
+        //     console.log(w1);
+        //     localStorage.setItem(`img`, w1);
+        // }
+        // let w1 = localStorage.getItem("img");
+        // document.getElementById("t1").value = w1;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image right</title>
+    <style>
+
+
+
+        .row{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="row">
+<img style="margin: 10px;" id="t0" src="images/resi.jpg">
+<img style="margin: 10px;" id="t1" src="images/tiranga.jpeg">
+<img style="margin: 10px;" id="t2" src="images/karnataka.jpg">
+<img style="margin: 10px;" id="t3" src="images/hyderabad.jpg">
+</div>
+
+<div class="row" style="margin-top: 200px;">
+    <img style="margin: 10px;" id="img0" src="images/resi.jpg">
+    <img style="margin: 10px;" id="img1" src="images/tiranga.jpeg">
+    <img style="margin: 10px;" id="img2" src="images/karnataka.jpg">
+    <img style="margin: 10px;" id="img3" src="images/hyderabad.jpg">
+    </div>
+
+<script>
+    let n=4;
+    function moveleft(){
+        let lastimage=document.getElementById(`t3`).src;
+        for(let i=n-1;i>=1;i--){
+            document.getElementById(`t${i}`).src= document.getElementById(`t${i-1}`).src;
+        }  
+        document.getElementById(`t0`).src=lastimage;
+// ********************************************************************************************************
+let firstimage=document.getElementById(`img0`).src;
+for(let i=0;i<n-1;i++){
+            document.getElementById(`img${i}`).src= document.getElementById(`img${i+1}`).src;
+        }
+        document.getElementById(`img3`).src=firstimage;
+
+
+
+
+    }
+    let loop= setInterval(moveleft,1000);
+</script>
+
+    
+</body>
+</html>

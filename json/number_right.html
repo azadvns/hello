@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <img onmouseover="stop()"  onmouseout="running()" id="t0" src="images/0.PNG">
+    <img onmouseover="stop()"  onmouseout="running()" id="t1" src="images/1.PNG">
+    <img onmouseover="stop()"  onmouseout="running()" id="t2" src="images/2.PNG">
+    <img onmouseover="stop()"  onmouseout="running()" id="t3" src="images/3.PNG">
+</div>
+<script>
+const n=4,interval=1000;
+
+function stop(){
+    clearInterval(loop);
+}
+// ******************************
+function running(){
+     loop=setInterval(right,interval);
+}
+// ***********************************
+    
+    function right(){
+        let firstimage=document.getElementById(`t0`).src;
+        for(let i=0;i<n-1;i++){
+            document.getElementById(`t${i}`).src= document.getElementById(`t${i+1}`).src;
+        }
+        document.getElementById(`t3`).src=firstimage;
+    }
+    let loop=setInterval(right,interval);
+</script>
+
+</body>
+</html>

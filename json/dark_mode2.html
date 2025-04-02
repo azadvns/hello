@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dark mode</title> 
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+
+        }
+        .light{
+            background-color: white;
+            color: black;
+
+        }
+    </style>
+</head>
+<body class="light" id="tds">
+    <h1>azad</h1>
+    <h1>Abhi</h1>
+    <button id="bl" style="display: block;" onclick="dark()">Dark </button><br>
+    <button id="no" style="display: none;" onclick="light()">Light </button><br>
+
+<script>
+    function dark(){
+  bl.style.display="block";
+  no.style.display="none";
+
+  bl.style.display="none";
+  no.style.display="block";
+
+  
+    }
+    function light(){
+        no.style.display="block";
+  bl.style.display="none";
+
+  no.style.display="none";
+  bl.style.display="block";
+
+    }
+</script>
+
+</body>
+</html>

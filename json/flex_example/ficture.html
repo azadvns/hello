@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficture</title>
+    <style>
+        .fle {
+            display: flex;
+            flex-direction: row;
+            width: 200px;
+            height: 200px;
+            margin-top: 10%;
+            margin-left: 100px;
+            cursor: pointer;
+            /* background-color: aqua; */
+
+
+        }
+
+        .box {
+            object-fit: cover;
+            /* background-color: aquamarine; */
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function pictureSearch() {
+
+
+            let name = document.getElementById("t1").value.toLowerCase();
+            console.log(name);
+            let images = document.getElementsByTagName("img");
+
+            console.log(images.length);
+            n = images.length;
+
+            for (let i = 0; i <= n - 1; i++) {
+                let x = (images[i].alt.toLowerCase());
+                console.log(x);
+                if (x.includes(name)) {
+
+                    images[i].style.display = "block";
+
+
+                    console.log("found");
+                }
+                else {
+                    images[i].style.display = "none";
+                }
+
+
+
+
+            }
+
+        }
+        // let loop=setInterval(pictureSearch,1000);
+
+    </script>
+
+    <center>
+        <input type="text" id="t1" onchange="pictureSearch()" onkeyup="pictureSearch()" placeholder="search of picture"
+            style="height: 20px; width: 500px; margin-top: 70px;">
+    </center>
+    <div class="fle">
+        <img class="box" style="margin: 10px; background-color: aquamarine;" src="../images/amitab bachhan.png"
+            alt="amitab"><br>
+        <img class="box" style="margin: 10px; background-color: aquamarine;" src="../images/kishorekumar.png"
+            alt="kishorekumar"><br>
+        <img class="box" style="margin: 10px;" src="../images/punith rajkumar.png" alt="punith"><br>
+        <img class="box" style="margin: 10px;" src="../images/vijaythalapati.png" alt="vijaythalapati"><br>
+    </div>
+</body>
+
+</html>

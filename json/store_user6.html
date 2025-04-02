@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store User</title>
+    <style>
+        .back{
+            background-color: yellow;
+        }
+        .col{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <button id="tn" onclick="f()">Store</button><br>
+    <!-- <input id="tn"><br> -->
+    <script>
+        let x=0;
+        const tn=document.getElementById("tn");
+
+        function f(){
+            if(x==1){
+                tn.innerText="color";
+                tn.classList.add("col");
+                tn.classList.remove("back");
+
+            }
+            else{
+                tn.innerText="background";
+                tn.classList.remove("col");
+                tn.classList.add("back");
+
+            }
+            x=1-x;
+        }
+    </script>
+
+</body>
+</html>

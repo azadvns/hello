@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dark change</title>
+    <style>
+        .light {
+            background-color: black;
+            color: white;
+        }
+
+        .dark {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="bttn" onclick="f()">Dark</button>
+
+    <script>
+        let x = 0;
+        const bttn = document.getElementById("bttn");
+        function f() {
+            if (x == 1) {
+                bttn.innerText = "Light";
+                document.body.classList.add("dark");
+                document.body.classList.remove("light");
+            }
+            else {
+                bttn.innerText = "Dark";
+                document.body.classList.remove("dark");
+                document.body.classList.add("light");
+            }
+            x = 1 - x;
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <button onclick="task()">Task</button><br>
+    Name<input type="text" id="t1" placeholder="Name"><br>
+    Time<input type="text" id="t2" placeholder="Time"><br>
+    Day<input type="text" id="t3" placeholder="Day"><br>
+    Payment<input type="text" id="t4"placeholder="Payment"><br>
+
+    <script>
+        function task(){
+         let w1=   document.getElementById("t1").value;
+            console.log(w1);
+            localStorage.setItem(`name`,w1);
+
+            let w2=document.getElementById("t2").value;
+            console.log(w2);
+            localStorage.setItem(`time`,w2);
+
+            let w3=document.getElementById("t3").value;
+            console.log(w3);
+            localStorage.setItem(`day`,w3);
+
+            let w4=document.getElementById("t4").value;
+            console.log(w4);
+            localStorage.setItem(`payment`,w4);
+        }
+        let w1=localStorage.getItem("name");
+        document.getElementById("t1").value=w1;
+
+        let w2=localStorage.getItem("time");
+        document.getElementById("t2").value=w2;
+
+        let w3=localStorage.getItem("day");
+        document.getElementById("t3").value=w3;
+
+        let w4=localStorage.getItem("payment");
+        document.getElementById("t4").value=w4;
+    </script>
+</body>
+</html>

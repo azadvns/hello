@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Tag</title>
+    <style>
+        .blue{
+            background-color: blue;
+        }
+        .pink{
+            background-color: pink;
+        }
+        .purple{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <button onclick="add()">Add</button><br>
+    <script>
+        function add(){
+var were=document.getElementsByTagName("input")
+console.log(were);
+var n=were.length;
+for(var i=0;i<=n-1;i++){
+    let x=Number(were[i].value);
+    if(x<0)
+    were[i].classList.add("blue");
+ else if(x==0)
+
+were[i].classList.add("pink");
+else
+were[i].classList.add("purple");
+}
+}
+    </script>
+    
+</body>
+</html>

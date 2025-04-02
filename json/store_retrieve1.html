@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+</head>
+<body>
+    <button onclick="storedata()">Store Data</button>
+    Name<input value="Name" id="tx" ><br>
+
+    <!-- <button onclick="retrievedata()">Retrieve Data</button> -->
+
+    <script>
+        
+        console.log("please select");
+        function storedata(){
+            let mm=document.getElementById("tx").value;
+            console.log(mm);
+            console.log("Select");
+
+            localStorage.setItem(`name`,mm);
+        }
+        // function retrievedata(){
+            let mm=localStorage.getItem("name");
+            document.getElementById("tx").value=mm;
+        // }
+        // retrievedata();
+    </script>
+</body>
+</html>

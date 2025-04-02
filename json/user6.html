@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>hi hello</h1>
+    This is the body
+    <input type="range" name="range" min="0" id="t1" onchange="setfont()" max="50"><br>
+    <input name="color" type="color" id="t2" onchange="setcolor()"><br>
+    <input type="color" name="backgroundcolor" id="t3" onchange="setbackground()"><br>
+
+    
+    <script>
+        const t1 = document.getElementById("t1");
+        const t2 = document.getElementById("t2");
+        const t3 = document.getElementById("t3");
+        
+        function setfont() {
+            const element = document.body;
+            element.style.fontSize = `${t1.value}px`;
+
+        } 
+        function setcolor() {
+            const element = document.body;
+            element.style.color = t2.value;
+        }
+
+        function setbackground(){
+            const element = document.body;
+            element.style.backgroundColor =t3.value;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shopping</title>
+</head>
+<body>
+    <button  onclick="add()">Add</button><br>
+    <button onclick="remove()">Remove</button>
+    <input   id="ca">
+    <script>
+     
+        let count=Number(localStorage.getItem("count"));
+        const tx=document.getElementById("ca");
+        function add(){
+            console.log(count);
+            localStorage.setItem(`count`,count);
+            tx.value=count;
+            count++;
+     }
+
+     function remove(){
+        
+        console.log(count);
+            localStorage.setItem(`count`,count);
+            tx.value=count;
+            count--;
+     }
+    </script>
+</body>
+</html>

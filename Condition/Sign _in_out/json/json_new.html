@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json new</title>
+</head>
+<body>
+    <textarea id="q1" style="height: 200px;width: 300px;">
+        [
+        {
+            "name":"Popat Lal",
+            "age":50,
+            "address":"Gokuldham"
+        },
+        {
+            "name":"Jetha Lal",
+            "age":50,
+            "address":"Gokuldham"
+        },{
+            "name":"MS Dhoni",
+            "age":45,
+            "address":"Ranchi"
+        }
+    ]
+
+
+    </textarea>
+    <button onclick="process()">Process</button>
+
+    <script>
+        function process(){
+            let r1=document.getElementById("q1").value;
+            console.log(r1);
+            let obc=JSON.parse(r1);
+            console.log(obc.length);
+            let n=obc.length;
+            for(let i=0;i<n-1;i++){
+
+                let txt=document.createElement("input");
+                txt.type="text";
+                txt.value=(obc[i].name);
+
+                let tyt=document.createElement("input");
+                tyt.type="text";
+                tyt.value=(obc[i].age);
+
+                let tzt=document.createElement("input");
+                tzt.type="text";
+                tzt.value=(obc[i].address);
+
+                let newdiv=document.createElement("div");
+
+                newdiv.appendChild(txt);
+                newdiv.appendChild(tyt);
+                newdiv.appendChild(tzt);
+
+                document.body.appendChild(newdiv);
+            }
+
+        }
+    </script>
+</body>
+</html>

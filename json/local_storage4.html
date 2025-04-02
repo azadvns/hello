@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve</title>
+</head>
+<body>
+    <h1>Local Storage Example</h1>
+    <button onclick="datastorage()">Data Store</button>
+    <button onclick="retrievedata()">Retrieve Store</button>
+    <button onclick="removeitem()">Remove Item</button>
+    <button onclick="clearstorage()">Clear data</button>
+
+    <p id="output"></p>
+
+    <script>
+        function datastorage(){
+            localStorage.setItem(`username`,`azad`);
+            localStorage.setItem(`color`,`green`);
+            localStorage.setItem(`language`,`css`);
+            document.getElementById("output").innerHTML="data store successfully";
+        }
+        function retrieveData(){
+            document.getElementById("output").innerHTML=``;
+            for(let i=0;i<localStorage.length;i++){
+                const key=localStorage.key(i);
+                const value=localStorage.getItem(key);
+                document.getElementById("output").innerHTML+=`${key}:${value}<br>`;
+            }
+        }
+
+        function removeitem(){
+            localStorage.removeItem(`username`);
+            document.getElementById("output").innerHTML=`data remove successfully`;
+        }
+
+        function clearstorage(){
+            localStorage.clear();
+            document.getElementById("output").innerHTML=`clear data successfully`;
+
+        }
+    </script>
+</body>
+</html>

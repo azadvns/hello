@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img left</title>
+    <style>
+        .col{
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="col">
+    <img style="margin: 10px;" id="img0" src="images/0.jpg">
+    <img style="margin: 10px;" id="img1" src="images/1.jpg">
+    <img style="margin: 10px;" id="img2" src="images/2.jpg">
+    <img style="margin: 10px;" id="img3" src="images/4.jpg">
+    <img style="margin: 10px;" id="img4" src="images/5.jpg">
+    <img style="margin: 10px;" id="img5" src="images/6.jpg">
+</div>
+    <script>
+        let n=6;
+        function moveright(){
+            let lastimage= document.getElementById("img5").src;
+            // for(let i=n-1;i>=1;i--){
+                for(let i=n-1;i>=1;i--){
+                document.getElementById(`img${i}`).src= document.getElementById(`img${i-1}`).src;
+
+                console.log( `img${i}`);
+            console.log(`img${(i-1)}`);
+            }
+            document.getElementById(`img0`).src=lastimage;
+        }
+        let loop=setInterval(moveright,1000);
+    </script>
+
+</body>
+</html>

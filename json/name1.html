@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name 1</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    A<input type="text" class="green"><br>
+    B<input type="text" class="red"><br>
+    C<input type="text" class="red"><br>
+    D<input type="text" class="green"><br>
+    E<input type="text" class="red"><br>
+    F<input type="text" class="green"><br>
+    <button onclick="submit()" >Submit</button>
+    <script>
+        function submit(){
+        var txbox=document.getElementsByClassName("red");
+      var n=txbox.length;
+        for(var i=0;i<=n-1;i++){
+            txbox[i].value="red";
+        }
+
+
+        txbox=document.getElementsByClassName("green");
+        var n=txbox.length;
+        for(var i=0;i<=n-1;i++){
+            txbox[i].value="green";
+        }
+    }
+    </script>
+</body>
+</html>

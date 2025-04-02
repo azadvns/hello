@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+</head>
+<body>
+    <button id="tds" onclick="add()">Add</button>
+
+    <script>
+        let count=Number(localStorage.getItem("count"));
+        const tx=document.getElementById("tds");
+function add(){
+    
+    console.log(count);
+    
+    
+    localStorage.setItem(`count`,count);
+    tds.innerHTML=count;
+    count++;
+}
+add();
+
+
+    </script>
+</body>
+</html>

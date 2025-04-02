@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesson</title>
+</head>
+<body>
+    <input type="email" id="t1" placeholder="EmaiId"><br>
+    <input type="password" id="t2" placeholder="password"><br>
+    <button onclick="login()">Login</button>
+    <button onclick="logout()">Log Out</button>
+
+    <script>
+        function login(){
+let mm=document.getElementById("t1").value;
+console.log(mm);
+localStorage.setItem(`email`,mm);
+
+let mn=document.getElementById("t2").value;
+console.log(mn);
+localStorage.setItem(`password`,mn);
+
+        }
+
+let mm=localStorage.getItem("email");
+document.getElementById("t1").value=mm;
+
+let mn=localStorage.getItem("password");
+document.getElementById("t2").value=mn;
+
+function logout(){
+    localStorage.removeItem=n;
+    n="login()";
+
+    
+
+
+}
+
+    </script>
+</body>
+</html>

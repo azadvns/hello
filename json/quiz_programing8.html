@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Programming</title>
+</head>
+
+<body>
+    <button onclick="quiz()">Quiz</button>
+    <table border="1">
+
+        <td>
+            <h1 id="se"></h1>
+        </td>
+        <td colspan="3">
+            <h1 id="que"></h1>
+        </td>
+        <tr>
+            <td> <label id="an1"></label></td>
+            <td> <label id="an2"></label></td>
+            <td> <label id="an3"></label></td>
+            <td> <label id="an4"></label></td>
+
+
+    </table>
+    <script>
+
+
+
+
+        function quiz() {
+
+            currentquestion = question[qno];
+            if (no >= 6) {
+                return;
+            }
+            se.innerText = no;
+            no++
+            qno++
+            que.innerText = currentquestion.question;
+            localStorage.setItem(`quetion`, que);
+
+
+            an1.innerText = currentquestion.option[0];
+            an2.innerText = currentquestion.option[1];
+            an3.innerText = currentquestion.option[2];
+            an4.innerText = currentquestion.option[3];
+
+            localStorage.setItem(`option`, an1);
+            localStorage.setItem(`option`, an2);
+            localStorage.setItem(`option`, an3);
+            localStorage.setItem(`option`, an4);
+
+        }
+        // let que=localStorage.getItem("question");
+
+        const data = `
+   [{
+    "question":" Who was the best Singer image",
+    "option":["Kishore kumar","Lata Mangeshwar","Ammitab Bachhan","Nana Patakar "],
+    "answer":"1",
+    "src":"images/kishorekumar.png"
+    },{
+   "question":"What is the prime minister india ",
+    "option":["Modi","Amit Shah","Yogi","Rekha Gupta"],
+    "answer":"1",
+    "src":"images/modi.png"
+    },{
+   "question":"Vijay Thalapati your are from",
+    "option":["Karnataka","Hyderabad","Rajasthan","Mumbai"],
+    "answer":"2",
+    "src":"images/vijaythalapati.png"
+    },{
+    "question":"Punit Rajkumar where are from",
+    "option":["Lucknow ","Maharastra ","Gujrat "," karnataka "],
+    "answer":"4",
+    "src":"images/punith rajkumar.png"
+    },{
+    "question":"The game of 7crore film of hero",
+    "option":["Shahrukh Khan","Ajay Kumar","Amitab Bachhan ","Sunil Satti"],
+    "answer":"3",
+    "src":"images/amitab bachhan.png"
+    }
+    ]
+         
+    `;
+
+
+        const question = JSON.parse(data);
+        let no = 1;
+        let qno = 0;
+        const n = 6;
+        let currentquestion;
+
+        const que = document.getElementById("que");
+        const an1 = document.getElementById("an1");
+        const an2 = document.getElementById("an2");
+        const an3 = document.getElementById("an3");
+        const an4 = document.getElementById("an4");
+
+        const se = document.getElementById("se");
+
+
+    </script>
+</body>
+
+</html>

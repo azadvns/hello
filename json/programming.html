@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programming</title>
+</head>
+<body>
+    <button onclick="submit()">Submit</button><br>
+    <textarea id="t1" ></textarea>
+    <script>
+
+function submit(){
+    let w1=document.getElementById("t1").value;
+    console.log(w1);
+    localStorage.setItem(`data`,w1);
+}
+let w1=localStorage.getItem("data");
+document.getElementById("t1").value=w1;
+
+         const data = `
+   [{
+    "question":" Who was the best Singer image",
+    "option":["Kishore kumar","Lata Mangeshwar","Ammitab Bachhan","Nana Patakar "],
+    "answer":"1",
+    "src":"images/kishorekumar.png"
+    },{
+   "question":"What is the prime minister india ",
+    "option":["Modi","Amit Shah","Yogi","Rekha Gupta"],
+    "answer":"1",
+    "src":"images/modi.png"
+    },{
+   "question":"Vijay Thalapati your are from",
+    "option":["Karnataka","Hyderabad","Rajasthan","Mumbai"],
+    "answer":"2",
+    "src":"images/vijaythalapati.png"
+    },{
+    "question":"Punit Rajkumar where are from",
+    "option":["Lucknow ","Maharastra ","Gujrat "," karnataka "],
+    "answer":"4",
+    "src":"images/punith rajkumar.png"
+    },{
+    "question":"The game of 7crore film of hero",
+    "option":["Shahrukh Khan","Ajay Kumar","Amitab Bachhan ","Sunil Satti"],
+    "answer":"3",
+    "src":"images/amitab bachhan.png"
+    }
+    ]
+         
+    `;
+    localStorage.setItem("questions",data);
+    </script>
+</body>
+</html>

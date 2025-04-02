@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+    <style>
+        .container-row {
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+            width: 200px;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-row">
+
+
+
+       <div>1<img style="margin-left: 20px;" id="t0" src="images/image4.webp"></div> 
+        <img style="margin-left: 20px;" id="t1" src="images/image1.webp">
+        <img style="margin-left: 20px;" id="t2" src="images/image2.webp">
+        <img style="margin-left: 20px;" id="t3" src="images/image3.webp">
+        <img style="margin-left: 20px;" id="t4" src="images/image5.webp">
+    </div>
+
+    <script>
+
+        let n = 5;
+
+        function remove() {
+            let lastimage = document.getElementById(`t4`).src;
+            for (let i = n - 1; i >= 1; i--) {
+                document.getElementById(`t${i}`).src = document.getElementById(`t${i - 1}`).src;
+            }
+            document.getElementById(`t0`).src = lastimage;
+        }
+        let loop = setInterval(remove, 1000);
+    </script>
+</body>
+
+</html>

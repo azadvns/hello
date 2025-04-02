@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember User</title>
+</head>
+<body>
+    <button onclick="remember()">Remember</button>
+    <input type="text" id="td">
+
+    <script>
+function remember(){
+    let mm=document.getElementById("td").value;
+    console.log(mm);
+    localStorage.setItem(`name`,mm);
+}
+let mm=localStorage.getItem("name");
+document.getElementById("td").value=mm;
+    </script>
+</body>
+</html>

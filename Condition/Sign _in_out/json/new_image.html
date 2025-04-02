@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+</head>
+<body>
+    <textarea id="im">
+        [
+        {
+            "src":"imagecloth1.jpg"
+        }
+        ]
+    </textarea>
+    <button onclick="image()">Image</button>
+
+    <script>
+        function image(){
+            let t1=document.createElement("im").value;
+            console.log(t1);
+            let object=JSON.parse(t1);
+            console.log(object.length);
+            let n=object.length;
+
+            for(let i=0;i<n-1;i++){
+                let photo=document.createElement("img").vaue;
+                photo.src=(object[i].src);
+                document.body.appendChild(photo);
+            }
+        }
+    </script>
+</body>
+</html>

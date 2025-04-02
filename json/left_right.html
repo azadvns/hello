@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Right</title>
+    <style>
+         .row{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .col{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <img onmouseover="stop()"  onmouseout="running()" id="t0" src="images/0.PNG">
+        <img onmouseover="stop()"  onmouseout="running()" id="t1" src="images/1.PNG">
+        <img onmouseover="stop()"  onmouseout="running()" id="t2" src="images/2.PNG">
+        <img onmouseover="stop()"  onmouseout="running()" id="t3" src="images/3.PNG">
+    </div>
+    <div style="margin-top: 20%;" class="col">
+        <img onmouseover="slide()"  onmouseout="run()" id="w0" src="images/0.PNG">
+        <img onmouseover="slide()"  onmouseout="run()" id="w1" src="images/1.PNG">
+        <img onmouseover="slide()"  onmouseout="run()" id="w2" src="images/2.PNG">
+        <img onmouseover="slide()"  onmouseout="run()" id="w3" src="images/3.PNG">
+    </div>
+
+    <script>
+        const n=4,interval=1000;
+
+function stop(){
+    clearInterval(loop);
+}
+// *********************************
+
+function running(){
+    loop=setInterval(remove,interval);
+}
+// ***********************************************
+function slide(){
+    clearInterval(loop);
+}
+
+// ****************************************************
+function run(){
+    loop=setInterval(remove,interval);
+}
+
+// ***********************************************
+        function remove(){
+            let lastimage=document.getElementById(`t3`).src;
+            for(let i=n-1;i>=1;i--){
+                document.getElementById(`t${i}`).src=  document.getElementById(`t${i-1}`).src;
+            }
+            document.getElementById(`t0`).src=lastimage;
+        
+        // ************************************************************
+
+        let firstimage=document.getElementById(`w0`).src;
+            for(let i=0;i<n-1;i++){
+                document.getElementById(`w${i}`).src=  document.getElementById(`w${i+1}`).src;
+            }
+            document.getElementById(`w3`).src=firstimage;
+        }
+
+        let loop=setInterval(remove,interval);
+    </script>
+</body>
+</html>

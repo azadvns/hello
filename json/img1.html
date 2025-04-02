@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <style>
+        .row{
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <img id="img0" style="margin: 10px;" src="images/amitab bachhan.png">
+    <img id="img1" style="margin: 10;" src="images/kishorekumar.png">
+    <img id="img2" style="margin: 10;" src="images/modi.png">
+    <img id="img3" style="margin: 10;" src="images/punith rajkumar.png">
+    <img id="img4" style="margin: 10;" src="images/vijaythalapati.png">
+</div>
+
+<script>
+    let n=5;
+    function move(){
+        let firstimage=document.getElementById("img0").src;
+        for(let i=0;i<n-1;i++){
+            document.getElementById(`img${i}`).src= document.getElementById(`img${i+1}`).src;
+            // console.log( `img${i}`);
+            // console.log(`img${(i-1)}`);
+        }
+        document.getElementById(`img4`).src=firstimage;
+    }
+    let loop=setInterval(move,1000);
+</script>
+</body>
+</html>

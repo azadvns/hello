@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name color</title>
+    <style>
+        .red
+        {
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+  A  <input type="text" ><br>
+  B  <input type="text" ><br>
+  C  <input type="text" ><br>
+
+    <button onclick="submit()">Submit</button>
+    <script>
+        function submit(){
+        var was=document.getElementsByTagName("input");
+        console.log(was);
+        var n=was.length;
+        for(let i=0;i<=n-1;i++){
+        let x=Number(was[i].value);
+        if(x<0)
+        was[i].classList.add("red");
+    else if(x==0)
+    was[i].classList.add("yellow");
+else
+was[i].classList.add("green");
+    }
+    }
+    </script>
+</body>
+</html>

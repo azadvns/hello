@@ -281,7 +281,7 @@
                 document.getElementById("board").classList.add("winn");
                 
 
-                //Show player1 victory
+               
                 showResult(1);
                 gamesituation = 1;
 
@@ -292,18 +292,18 @@
                 document.getElementById("board").classList.add("winn");
                 
 
-                //Show player victory
+                
                 showResult(2);
                 gamesituation = 2;
             }
             if (result == 3) {
                 result = "Draw";
                 gamesituation = 3;
-                //Show  Draw
+            
             }
             if (result == 0) {
                 result = "play";
-                // gamesituation=4;
+                
             }
             return result;
         }
@@ -316,19 +316,13 @@
             let x = document.getElementById(id);
             let position = Number(id.replace("t", ""));
             let n = board[position];
-            // alert(position);
+            
 
 
             if (n != 0) {
                 alert("Already filled");
                 return;
             }
-
-            // alert(currentplayer);
-            // alert(`position =${position}`);
-
-            // alert(id);
-            // x.innerHTML = currentplayer;
             board[position] = currentplayer;
             let result = showGamePosition();
             // currentplayer = 2;
@@ -343,14 +337,14 @@
                 p1.classList.add("active");
                 p2.classList.add("inactive");
                 currentplayer = 1;
-                // alert(1);
+                
 
             }
             else {
                 p2.classList.add("active");
                 p1.classList.add("inactive");
                 currentplayer = 2;
-                // alert(2);
+        
             }
         }
 

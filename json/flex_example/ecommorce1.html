@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommorce</title>
+    <style>
+img{
+    border-radius: 30px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+        .image {
+            display: flex;
+            flex-direction: row;
+            box-shadow: 5px 5px 10px #888888;
+
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .force {
+            object-fit: cover;
+        }
+
+        .force:hover {
+            transform: scale(1.1);
+        }
+        .box:hover:focus{
+background-color: lightcoral;
+background-color: aquamarine;
+color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+    <a href="#">Menu</a>
+    
+</div>
+
+
+
+    <img style="margin-left: 900px; height: 50px; width: 50px;" src="../images/shopping card.png">
+
+    <div style="margin-left: 400px;margin-top: 100px;">Search
+        <input class="box" style="height: 20px; width: 200px;  border-radius: 20px; color: aqua; " type="text" id="t1"
+            onchange="selectimage()" onkeyup="selectimage()" placeholder="Search">
+    </div>
+
+
+    <div class="image">
+
+        <div class="card" style="width: 18rem;">
+            <img class="force" src="../images/book.jpeg" alt="book">
+            <h1 style="display: block;">Book</h1>
+            <div id="c1" placehoder="Number" min="0" max="50"></div>
+            <button onclick="add1()">+</button>
+            <button onclick="negative1()">-</button>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="force" src="../images/camera.jpeg" alt="camera">
+            <h1>Camera</h1>
+            <div id="c2" placehoder="Number" min="0" max="50"></div>
+            <button onclick="add2()">+</button>
+            <button onclick="negative2()">-</button>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="force" src="../images/cloth.jpeg" alt="cloth">
+            <h1>Cloth</h1>
+            <div id="c3" placehoder="Number" min="0" max="50"></div>
+            <button onclick="add3()">+</button>
+            <button onclick="negative3()">-</button>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="force" src="../images/mobile.avif" alt="mobile">
+            <h1>Mobile</h1>
+            <div id="c4" placehoder="Number" min="0" max="50"></div>
+            <button onclick="add4()">+</button>
+            <button onclick="negative4()">-</button>
+        </div>
+
+
+    </div>
+    <script>
+        let count = Number(localStorage.getItem("count"));
+        const td1 = document.getElementById("c1");
+        const td2 = document.getElementById("c2");
+        const td3 = document.getElementById("c3");
+        const td4 = document.getElementById("c4");
+
+        function add1() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td1.innerText = count;
+            count++;
+
+        }
+
+        function negative1() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td1.innerText = count;
+            count--;
+
+        }
+
+
+
+        function add2() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td2.innerText = count;
+            count++;
+
+        }
+
+        function negative2() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td2.innerText = count;
+            count--;
+
+        }
+
+
+
+        function add3() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td3.innerText = count;
+            count++;
+
+        }
+
+        function negative3() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td3.innerText = count;
+            count--;
+
+        }
+
+
+        function add4() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td4.innerText = count;
+            count++;
+
+        }
+
+        function negative4() {
+            console.log(count);
+            localStorage.getItem(`count`, count);
+            td4.innerText = count;
+            count--;
+
+        }
+
+        // *********************************************************************************
+
+        function selectimage() {
+            let name = document.getElementById("t1").value.toLowerCase();
+            console.log(name);
+            let image = document.getElementsByTagName("img");
+            console.log(image.length);
+            n = image.length;
+
+            for (let i = 1; i <= n - 1; i++) {
+                let x = (image[i].alt.toLowerCase());
+                console.log(x);
+                if (x.includes(name)) {
+                    image[i].style.display = "block";
+                }
+                else {
+                    image[i].style.display = "none"
+                }
+            }
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>
