@@ -1,0 +1,25 @@
+
+[
+    {
+        "name":"Book",
+        "price":"30",
+        "src":"pic/book.jpg"
+
+    },
+    {
+        "name":"Laptop",
+        "price":"35000",
+        "src":"pic/laptop.jpg"
+    },
+    {
+        "name":"Bag",
+        "age":"400",
+        "src":"pic/bag.jpg"
+    },
+    {
+        "name":"pencil",
+        "price":"10",
+        "src":"pic/pencel.jpg"
+    }
+   
+]
