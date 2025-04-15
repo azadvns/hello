@@ -39,7 +39,7 @@
     <div class="col">
         <div class="image">
             <img onchange="add()"  value="+" id="w1" class="force" style="margin: 10px; " src="../images/book.jpeg" alt="book">
-           
+        
             <img onchange="add()" value="+" id="w2" class="force" style="margin: 10px;" src="../images/camera.jpeg" alt="camera">
             <img onchange="add()" id="w3" class="force" style="margin: 10px;" src="../images/cloth.jpeg" alt="cloth">
             <img onchange="add()" id="w4" class="force" style="margin: 10px;" src="../images/cloth1.jpeg" alt="cloth">
@@ -51,8 +51,7 @@
             <img onchange="add()" id="w8" class="force" style="margin: 10px;" src="../images/fan.jpeg" alt="fan">
         </div>
     </div>
-    <button  id="c1" onclick="add()">+</button><br>
-    <button  id="c1" onclick="negative()">-</button>
+
     <script>
 let count=Number(localStorage.getItem("count"));
 const td1=document.getElementById("w1");
@@ -91,18 +90,12 @@ function negative(){
                     image[i].style.display = "none"
                 }
             }
-            // local();
+            
            
         }
         
 
-        // function local() {
-        //     let w1 = document.getElementById("t1");
-        //     console.log(w1);
-        //     localStorage.setItem(`img`, w1);
-        // }
-        // let w1 = localStorage.getItem("img");
-        // document.getElementById("t1").value = w1;
+    
     </script>
 </body>
 
