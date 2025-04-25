@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script3</title>
+    <script>
+        function famount(){
+let h1=Number(document.getElementById("h1").value);
+let h2=Number(document.getElementById("h2").value);
+let h3=document.getElementById("amount");
+console.log(h1+h2);
+let +=document.getElementById("+").checked;
+let -=document.getElementById("-").checked;
+let *=document.getElementById("*").checked;
+let /=document.getElementById("/").checked;
+console.log(+,-,*,/);
+let result =" notgiven";
+if(+)
+result = h1+h2;
+if(-)
+result = h1-h2;
+if(*)
+result =h1*h2;
+if(k/4)
+result =h1/h2;
+h3.value=result;
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="your enter" id="h1">
+    <br>
+    <input type="text" placeholder="your enter" id="h2">
+    <br>
+    <input type="text" placeholder="Total enter" id="amount">
+    <br>
+    <select id="operator">
+        <option value="0">--</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+
+    </select>
+    <button onclick="famount()">Amount</button>
+</body>
+</html>

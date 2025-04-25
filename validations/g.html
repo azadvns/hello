@@ -13,7 +13,6 @@
     animation-iteration-count: 1;
     animation-direction:normal;
     animation-fill-mode: forwards;
-    
         }
         @keyframes jeetanekebad{
        0%{width: 10%;}
@@ -34,22 +33,9 @@
 </head>
 
 <body>
-    
     <button id="t" onclick="jeet()">djcvhb</button>
-    
     <center>
-        <table id="board"  border="1">
-            <tr>
-                <td >
-                    <div class="coin"></div>
-                </td>
-                <td>
-                    <div class="coin"></div>
-                </td>
-                <td>
-                    <div class="coin"></div>
-                </td>
-            </tr>
+        <table id="board" class=" box" border="1">
             <tr>
                 <td>
                     <div class="coin"></div>
@@ -72,16 +58,24 @@
                     <div class="coin"></div>
                 </td>
             </tr>
-            <img src="celebration1.jpeg">
+            <tr>
+                <td>
+                    <div class="coin"></div>
+                </td>
+                <td>
+                    <div class="coin"></div>
+                </td>
+                <td>
+                    <div class="coin"></div>
+                </td>
+            </tr>
+
         </table>
     </center>
     <script>
         function jeet(){
             alert();
             document.getElementById("board").classList.add("winner");
-
-           
-        
         }
     </script>
 </body>

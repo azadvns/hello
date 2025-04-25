@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Final</title>
+    <style>
+        .show {
+            display: block;
+        }
+        .no {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <button id="b1" class="show" onclick="start()">Start</button>
+
+        <div id="d1" class="no"> All question attempt
+            <table border="1">
+                <tr>
+                    <td><button onclick="runMYTimer()">Timer</button></td>
+                    <td><h2 id="ans">Answer</h2></td>
+                    <td colspan="4"><p id="time">Time</p></td>
+                </tr>
+                <br>
+                <tr>
+                    <td><div id="h2q">Question No</div></td>
+                    <td id="que" colspan="4">Question</td>
+                    <td id="scored">score</td>
+                </tr>
+                <tr>
+                    <td><label>A</label></td>
+                    <td><label id="o1" for="r1" style="border-style: ridge;"></label></td>
+                    <td><input id="r1" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>B</label></td>
+                    <td><label id="o2" for="r2"></label></td>
+                    <td><input id="r2" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>C</label></td>
+                    <td><label id="o3" for="r3"></label></td>
+                    <td><input id="r3" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td><label>D</label></td>
+                    <td><label id="o4" for="r4"></label></td>
+                    <td><input id="r4" type="radio" name="operator"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="submit()">Submit</button></td>
+                    <td colspan="2"><div>Result</div></td>
+                    <td colspan="2"><div id="sahi"></div></td>
+                </tr>
+            </table>
+        </div>
+        <input class="no" id="defauld" type="radio" checked name="operator">
+    </center>
+
+    <script>
+        let currentqno = 0;
+        let score = 0;
+        let currentquestion;
+        let mytimer = null;
+        let count = 0;
+        const fulltimer = 5; // 5 seconds timer
+        const timeshow = document.getElementById("time");
+        const questions = JSON.parse(`
+            [{
+                "question":"Which of the three bank will be merged with the other two to create Indias third-largest bank",
+                "option":["Panjab National Bank","Indian Bank","Bank of Baroda","Dena Bank"],
+                "answer":"1"
+            },{
+                "question":"What is the name of the weak zone of the earth's crust?",
+                "option":["Seismic","Cosmic","Formic","Anaemic"],
+                "answer":"1"
+            },{
+                "question":"Where was India's first national Museum opened?",
+                "option":["Delhi","Hyderabad","Rajasthan","Mumbai"],
+                "answer":"3"
+            },{
+                "question":"In 2019, Which popular singer was awarded the Bharat Ratna award?",
+                "option":["Lata Mangeshkar","Asha Bhosle","Bhupen Hazarika","Manna Dey"],
+                "answer":"2"
+            },{
+                "question":"The world's nation 5G mobile network was launched by which country?",
+                "option":["Japan","Asia","South Korea","Malaysia"],
+                "answer":"2"
+            }]
+        `);
+
+        function showQuestion(qno) {
+            if (qno >= questions.length) {
+                alert("Quiz Finished! Your final score is: " + score);
+                return;
+            }
+            currentquestion = questions[qno];
+            que.innerText = currentquestion.question;
+            ans.innerText = `Answer = ${currentquestion.answer}`;
+            scored.innerText = score;
+            h2q.innerText = `Question No ${qno + 1}`;
+            o1.innerText = currentquestion.option[0];
+            o2.innerText = currentquestion.option[1];
+            o3.innerText = currentquestion.option[2];
+            o4.innerText = currentquestion.option[3];
+            setdefauldchecked();
+            runMYTimer();
+        }
+
+        function submit() {
+            let opt = getGivenAnswer();
+            let result = resultcorrect();
+            if (result) {
+                score++;
+            }
+            showQuestion(++currentqno);
+        }
+
+        function getGivenAnswer() {
+            if (defauld.checked)
+                return 0;
+            if (r1.checked)
+                return 1;
+            if (r2.checked)
+                return 2;
+            if (r3.checked)
+                return 3;
+            if (r4.checked)
+                return 4;
+        }
+
+        function setdefauldchecked() {
+            defauld.checked = true;
+        }
+
+        function resultcorrect() {
+            const result = document.getElementById("sahi");
+            const actualanswer = currentquestion.answer;
+            if (getGivenAnswer() == actualanswer) {
+                result.innerText = "Correct";
+                return true;
+            } else {
+                result.innerText = "Wrong";
+                return false;
+            }
+        }
+
+        function timer() {
+            timeshow.innerText = count;
+            count++;
+            if (count > fulltimer) {
+                timeshow.innerText = "Time over";
+                clearInterval(mytimer);
+                showQuestion(++currentqno);
+            }
+        }
+
+        function runMYTimer() {
+            clearInterval(mytimer);
+            count = 0;
+            mytimer = setInterval(timer, 1000);
+        }
+
+        function start() {
+            hideStartButton();
+            showQuestionDiv();
+            currentqno = 0;
+            showQuestion(currentqno);
+        }
+
+        function showStartButton() {
+            b1.classList.add("show");
+            b1.classList.remove("no");
+        }
+
+        function hideStartButton() {
+            b1.classList.add("no");
+            b1.classList.remove("show");
+        }
+
+        function showQuestionDiv() {
+            d1.classList.add("show");
+            d1.classList.remove("no");
+        }
+
+        const data = `
+            [{
+                "question":"Which of the three bank will be merged with the other two to create Indias third-largest bank",
+                "option":["Panjab National Bank","Indian Bank","Bank of Baroda","Dena Bank"],
+                "answer":"1"
+            },{
+                "question":"What is the name of the weak zone of the earth's crust?",
+                "option":["Seismic","Cosmic","Formic","Anaemic"],
+                "answer":"1"
+            },{
+                "question":"Where was India's first national Museum opened?",
+                "option":["Delhi","Hyderabad","Rajasthan","Mumbai"],
+                "answer":"3"
+            },{
+                "question":"In 2019, Which popular singer was awarded the Bharat Ratna award?",
+                "option":["Lata Mangeshkar","Asha Bhosle","Bhupen Hazarika","Manna Dey"],
+                "answer":"2"
+            },{
+                "question":"The world's nation 5G mobile network was launched by which country?",
+                "option":["Japan","Asia","South Korea","Malaysia"],
+                "answer":"2"
+            }]
+        `;
+        const question= JSON.parse(data);
+    </script>
+</body>
+</html>

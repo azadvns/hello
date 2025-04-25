@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             @keyframes rotate{
+            0%{transform: rotatez(360deg);}
+            100%{transform: rotatez(0deg);}
+        }
+        .line{
+            animation: rotate 4s linear infinite;
+            height: 200px;
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="line" id="tata" src="../hyderabad.jpg">
+        
+        <div class="same" id="t2">image hyderabad</div>
+        <script>
+
+const line = document.getElementById("data");
+        const t1 = document.getElementById("t2");
+        // let t2=Number(document.getElementById("t2").value);
+
+        let n = 0;
+        const total = 6;
+
+
+        line.addEventListener('animationiteration', () => {
+            console.log(`animation Iteration`);
+            n = (n + 1) % total;
+            line.src = `../folder_image/${n}.jpg`;
+            t1.innerHTML = `India of image best quality ${n}`;
+            console.log(t1.innerHTML);
+            // t2.value=`India image 1`;
+
+
+        });
+
+        </script>
+    </div>
+</body>
+</html>

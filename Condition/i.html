@@ -1,30 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @keyframes spin{
-            0%{transform: rotateZ(0deg);}
-            100%{transform: rotatez(360deg);}
-        }
-        div {
-  width: 90%;
-  height: 500px;
-  /* background-color: skyblue; */
-}
-
-.rotated {
-  transform: rotate(0deg); /* Equal to rotateZ(45deg) */
-  background-color: pink;
-  animation: spin 4s linear 1;
-}
-    </style>
-</head>
-<body>
-    <div class="rotated">
-        <img src="../images/1.jpg">
-    </div>
-</body>
-</html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Move Image Example</title> 
+    <style> 
+        .container { 
+            position: relative; 
+            height: 200px; /* Set a height for the container */ 
+            border: 1px solid #000; /* Optional: to visualize the container */ 
+        } 
+        .move-image { 
+            position: absolute; 
+            top: 50px; /* Adjust this value to move it up or down */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <img src="../images/gototop.png" alt="Example Image" class="move-image"> 
+</div> 
+ 
+</body> 
+</html> 
