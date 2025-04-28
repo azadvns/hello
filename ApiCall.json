@@ -3,30 +3,30 @@
     "name": "pepsi",
     "description": "Cold Drink",
     "price": 20,
-    "image": "pic/pepsi.jpg"
+    "image": "validations/pepsi.jpeg"
     },
     {
-    "name": "coke",
+    "name": "Laptop",
     "description": "Cold Drink",
     "price": 150,
-    "image": "pic/coke.jpg"
+    "image": "validations/laptop3.jpeg"
     },
     {
-    "name": "charged",
+    "name": "Orange",
     "description": "Cold Drink",
     "price": 50,
-    "image": "pic/charged.jpg"
+    "image": "validations/orange.jpeg"
     },
     {
     "name": "fruit",
     "description": "Cold Drink",
     "price": 20,
-    "image": "pic/fruit.jpg"
+    "image": "validations/mango.jpeg"
     },
     {
     "name": "apple",
     "description": "Cold Drink",
     "price": 15,
-    "image": "pic/fruit.jpg"
+    "image": "validations/apple.jpeg"
     }
     ]
