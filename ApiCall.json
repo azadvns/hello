@@ -3,30 +3,25 @@
     "name": "pepsi",
     "description": "Cold Drink",
     "price": 20,
-    "image": "validations/pepsi.jpeg"
+    "image": "https://azadvns.github.io/hello/validations/pepsi.jpeg"
     },
-    {
-    "name": "Laptop",
-    "description": "Cold Drink",
-    "price": 150,
-    "image": "validations/laptop3.jpeg"
-    },
+   
     {
     "name": "Orange",
     "description": "Cold Drink",
     "price": 50,
-    "image": "validations/orange.jpeg"
+    "image": "https://azadvns.github.io/hello/validations/orange.jpeg"
     },
     {
     "name": "fruit",
     "description": "Cold Drink",
     "price": 20,
-    "image": "validations/mango.jpeg"
+    "image": "https://azadvns.github.io/hello/validations/mango.jpeg"
     },
     {
     "name": "apple",
     "description": "Cold Drink",
     "price": 15,
-    "image": "validations/apple.jpeg"
+    "image": "https://azadvns.github.io/hello/validations/apple.jpeg"
     }
     ]
