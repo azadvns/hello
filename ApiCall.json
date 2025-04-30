@@ -23,5 +23,56 @@
     "description": "Cold Drink",
     "price": 15,
     "image": "https://azadvns.github.io/hello/validations/apple.jpeg"
+    },
+    {
+        "name":"Laptop",
+        "price":35000,
+        "image":"validations/laptop1.jpeg"
+    },
+    {
+        "name":"Lotus",
+        "price":50,
+        "image":"validations/lotus.jpeg"
+    },
+    {
+        "name":"Fan",
+        "price":1500,
+        "image":"validations/fan.jpeg"
+    },
+    {
+        "name":"Chair",
+        "price":900,
+        "image":"validations/chair.jpeg"
+    },
+    {
+        "name":"Car",
+        "price":700000,
+        "image":"validations/car.jpeg"
+    },
+    {
+        "name":"Book",
+        "price":50,
+        "image":"validations/book.jpeg"
+    },
+    {
+        "name":"Bike",
+        "price":125000,
+        "image":"validations/bike.jpeg"
+    },
+    {
+        "name":"Ballon",
+        "price":20,
+        "image":"validations/baloon1.jpeg"
+    },
+    {
+        "name":"Ac",
+        "price":35000,
+        "image":"validations/ac.jpeg"
     }
+   
+   
+   
+   
+    
+
     ]
