@@ -27,47 +27,47 @@
     {
         "name":"Laptop",
         "price":35000,
-        "image":"validations/laptop1.webp"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/laptop1.webp"
     },
     {
         "name":"Lotus",
         "price":50,
-        "image":"validations/lotus.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/lotus.jpeg"
     },
     {
         "name":"Fan",
         "price":1500,
-        "image":"validations/fan.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/fan.jpeg"
     },
     {
         "name":"Chair",
         "price":900,
-        "image":"validations/chair.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/chair.jpeg"
     },
     {
         "name":"Car",
         "price":700000,
-        "image":"validations/car.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/car.jpeg"
     },
     {
         "name":"Book",
         "price":50,
-        "image":"validations/book.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/book.jpeg"
     },
     {
         "name":"Bike",
         "price":125000,
-        "image":"validations/bike.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/bike.jpeg"
     },
     {
-        "name":"Ballon",
+        "name":"Baloon",
         "price":20,
-        "image":"validations/baloon1.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/ballon1.jpeg"
     },
     {
         "name":"Ac",
         "price":35000,
-        "image":"validations/ac.jpeg"
+        "image":"https://github.com/azadvns/hello/blob/main/validations/ac.jpeg"
     }
    
    
