@@ -68,7 +68,18 @@
         "name":"Ac",
         "price":"₹ 35000",
         "image":"https://azadvns.github.io/hello/validations/ac.jpeg"
+    },
+    {
+        "name":"Mobile",
+        "price":"₹ 12000",
+        "iamge":"https://azadvns.github.io/hello/validations/mobile.jpeg"
+    },
+    {
+        "name":"Royal enfield",
+        "price":"₹ 300000",
+        "iamge":"https://azadvns.github.io/hello/validations/royal.jpeg"
     }
+   
    
    
    
