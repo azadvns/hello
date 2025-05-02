@@ -2,71 +2,71 @@
     {
     "name": "pepsi",
     "description": "Cold Drink",
-    "price": 20,
+    "price":"₹ 20",
     "image": "https://azadvns.github.io/hello/validations/pepsi.jpeg"
     },
    
     {
     "name": "Orange",
     "description": "Cold Drink",
-    "price": 50,
+    "price":"₹ 50",
     "image": "https://azadvns.github.io/hello/validations/orange.jpeg"
     },
     {
     "name": "fruit",
     "description": "Cold Drink",
-    "price": 20,
+    "price":"₹ 20" ,
     "image": "https://azadvns.github.io/hello/validations/mango.jpeg"
     },
     {
     "name": "apple",
     "description": "Cold Drink",
-    "price": 15,
+    "price": "₹ 50",
     "image": "https://azadvns.github.io/hello/validations/apple.jpeg"
     },
     {
         "name":"Laptop",
-        "price":35000,
+        "price":"₹ 35000",
         "image":"https://azadvns.github.io/hello/validations/laptop1.webp"
     },
     {
         "name":"Lotus",
-        "price":50,
+        "price":"₹ 30",
         "image":"https://azadvns.github.io/hello/validations/lotus.jpeg"
     },
     {
         "name":"Fan",
-        "price":1500,
+        "price":"₹ 1500",
         "image":"https://azadvns.github.io/hello/validations/fan.jpeg"
     },
     {
         "name":"Chair",
-        "price":900,
+        "price":"₹ 900",
         "image":"https://azadvns.github.io/hello/validations/chair.jpeg"
     },
     {
         "name":"Car",
-        "price":700000,
+        "price":"₹ 700000",
         "image":"https://azadvns.github.io/hello/validations/car.jpeg"
     },
     {
         "name":"Book",
-        "price":50,
+        "price":"₹ 50",
         "image":"https://azadvns.github.io/hello/validations/book.jpeg"
     },
     {
         "name":"Bike",
-        "price":125000,
+        "price":"₹ 125000",
         "image":"https://azadvns.github.io/hello/validations/bike.jpeg"
     },
     {
         "name":"Baloon",
-        "price":20,
+        "price":"₹ 20",
         "image":"https://azadvns.github.io/hello/validations/baloon1.jpeg"
     },
     {
         "name":"Ac",
-        "price":35000,
+        "price":"₹ 35000",
         "image":"https://azadvns.github.io/hello/validations/ac.jpeg"
     }
    
