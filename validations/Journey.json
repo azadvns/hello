@@ -1,0 +1,36 @@
+
+
+[
+
+    {
+        "name":"Kashi",
+        "price":"1000",
+        "image":"kashi1.jpeg"
+    },
+
+    {
+        "name":"Prayagraj",
+        "price":"2000",
+        "image":"prayajraj.jpeg"
+    },
+    {
+        "name":"Vindhyachal",
+        "price":"4000",
+        "image":"vindhyachal.jpeg"
+    },
+    {
+        "name":"Lucknow",
+        "price":"2000",
+        "image":"lucknow.jpeg"
+    },
+    {
+        "name":"Ayodhya",
+        "price":"2000",
+        "image":"ayodhya.jpeg"
+    }
+
+
+
+
+
+]
